@@ -24,16 +24,19 @@
     "test": "jake test --trace",
     "build": "jake --trace"
   },
-  "dependencies": {},
-  "devDependencies": {
-    "jake": "latest",
-    "jake-utils": "latest",
-    "browserify": "3.22",
-    "wrench": "latest",
+  "dependencies": {
     "moment": "latest",
     "hammerjs": "1.0.5",
     "mousetrap": "latest",
-    "emitter-component": "latest",
-    "node-watch": "latest"
+    "emitter-component": "latest"
+  },
+  "devDependencies": {
+    "webpack": "latest",
+    "gulp": "*",
+    "gulp-util": "latest",
+    "jake": "latest",
+    "jake-utils": "latest",
+    "browserify": "3.22",
+    "wrench": "latest"
   }
 }

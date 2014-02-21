@@ -1,11 +1,11 @@
 var assert = require('assert'),
     fs = require('fs'),
-    dot = require('../src/graph/dotparser.js');
+    dotparser = require('../lib/graph/dotparser.js');
 
 fs.readFile('test/dot.txt', function (err, data) {
   data = String(data);
 
-  var graph = dot.parseDOT(data);
+  var graph = dotparser.parseDOT(data);
 
   assert.deepEqual(graph, {
     "type": "digraph",

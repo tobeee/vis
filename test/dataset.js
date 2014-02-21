@@ -1,7 +1,6 @@
 var assert = require('assert'),
     moment = require('moment'),
-    vis = require('../dist/vis.js'),
-    DataSet = vis.DataSet;
+    DataSet = require('../lib/DataSet');
 
 var now = new Date();
 
@@ -102,7 +101,7 @@ assert.equal(data.get().length, 0);
 
 
 // test filtering and sorting
-data = new vis.DataSet();
+data = new DataSet();
 data.add([
   {id:1, age: 30, group: 2},
   {id:2, age: 25, group: 4},
