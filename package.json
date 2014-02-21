@@ -36,6 +36,7 @@
     "gulp-util": "latest",
     "jake": "latest",
     "jake-utils": "latest",
+    "clean-css": "latest",
     "browserify": "3.22",
     "wrench": "latest"
   }
