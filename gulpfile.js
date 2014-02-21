@@ -81,6 +81,7 @@ gulp.task('minify', ['bundle'], function () {
 // The default task (called when you run `gulp`)
 gulp.task('default', ['bundle', 'minify']);
 
+// FIXME: watch task doesn't work reliably
 // The watch task (to automatically rebuild when the source code changes)
 gulp.task('watch', ['bundle', 'minify'], function () {
   gulp.watch(['index.js', 'lib/**/*.js'], ['bundle', 'minify']);
