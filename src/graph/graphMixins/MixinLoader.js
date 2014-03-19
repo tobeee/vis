@@ -46,6 +46,8 @@ var graphMixinLoaders = {
     if (this.constants.configurePhysics == true) {
       this._loadPhysicsConfiguration();
     }
+    this._loadMixin(minionsMixin);
+    this._constructMinions();
    },
 
 

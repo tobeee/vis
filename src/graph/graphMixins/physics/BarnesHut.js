@@ -4,6 +4,30 @@
 
 var barnesHutMixin = {
 
+
+  _calculateNodeForcesWithWorkers : function() {
+    var node;
+    var nodes = this.calculationNodes;
+    var nodeIndices = this.calculationNodeIndices;
+    var nodeCount = nodeIndices.length;
+
+    this._formBarnesHutTree(nodes,nodeIndices);
+
+    var barnesHutTree = this.barnesHutTree;
+
+    var simplifiedNodes = [];
+    // place the nodes one by one recursively
+    for (var i = 0; i < nodeCount; i++) {
+      node = nodes[nodeIndices[i]];
+      simplifiedNodes.push({x:node.x,y:node.y,mass:node.mass, height:node.height, width:node.width, radius: node.radius});
+    }
+
+    this.webWorkers[0].postMessage({nodes:simplifiedNodes, root:barnesHutTree.root.children.NW, assignment:'calculateForce'});
+    this.webWorkers[1].postMessage({nodes:simplifiedNodes, root:barnesHutTree.root.children.NE, assignment:'calculateForce'});
+    this.webWorkers[2].postMessage({nodes:simplifiedNodes, root:barnesHutTree.root.children.SW, assignment:'calculateForce'});
+    this.webWorkers[3].postMessage({nodes:simplifiedNodes, root:barnesHutTree.root.children.SE, assignment:'calculateForce'});
+  },
+
   /**
    * This function calculates the forces the nodes apply on eachother based on a gravitational model.
    * The Barnes Hut method is used to speed up this N-body simulation.
@@ -98,7 +122,7 @@ var barnesHutMixin = {
    * @param nodeIndices
    * @private
    */
-  _formBarnesHutTree : function(nodes,nodeIndices) {
+  _formBarnesHutTreeWithWorkers : function(nodes,nodeIndices) {
     var node;
     var nodeCount = nodeIndices.length;
 
@@ -106,6 +130,95 @@ var barnesHutMixin = {
       minY = Number.MAX_VALUE,
       maxX =-Number.MAX_VALUE,
       maxY =-Number.MAX_VALUE;
+
+    // get the range of the nodes
+    for (var i = 0; i < nodeCount; i++) {
+      var x = nodes[nodeIndices[i]].x;
+      var y = nodes[nodeIndices[i]].y;
+      if (x < minX) { minX = x; }
+      if (x > maxX) { maxX = x; }
+      if (y < minY) { minY = y; }
+      if (y > maxY) { maxY = y; }
+    }
+    // make the range a square
+    var sizeDiff = Math.abs(maxX - minX) - Math.abs(maxY - minY); // difference between X and Y
+    if (sizeDiff > 0) {minY -= 0.5 * sizeDiff; maxY += 0.5 * sizeDiff;} // xSize > ySize
+    else              {minX += 0.5 * sizeDiff; maxX -= 0.5 * sizeDiff;} // xSize < ySize
+
+
+    var minimumTreeSize = 1e-5;
+    var rootSize = Math.max(minimumTreeSize,Math.abs(maxX - minX));
+    var halfRootSize = 0.5 * rootSize;
+    var centerX = 0.5 * (minX + maxX), centerY = 0.5 * (minY + maxY);
+
+    // construct the barnesHutTree
+    var barnesHutTree = {root:{
+      centerOfMass:{x:0,y:0}, // Center of Mass
+      mass:0,
+      range: {minX:centerX-halfRootSize,maxX:centerX+halfRootSize,
+        minY:centerY-halfRootSize,maxY:centerY+halfRootSize},
+      size: rootSize,
+      calcSize: 1 / rootSize,
+      children: {data:null},
+      maxWidth: 0,
+      level: 0,
+      childrenCount: 4
+    }};
+    this._splitBranch(barnesHutTree.root);
+
+
+    var nodeRegions = {ne:[],nw:[],se:[],sw:[]};
+    // place the nodes one by one recursively
+    for (i = 0; i < nodeCount; i++) {
+      node = nodes[nodeIndices[i]];
+      if (barnesHutTree.children.NW.range.maxX > node.x) { // in NW or SW
+        if (barnesHutTree.children.NW.range.maxY > node.y) { // in NW
+          nodeRegions['nw'].push(node);
+        }
+        else { // in SW
+          nodeRegions['sw'].push(node);
+        }
+      }
+      else { // in NE or SE
+        if (barnesHutTree.children.NW.range.maxY > node.y) { // in NE
+          nodeRegions['ne'].push(node);
+        }
+        else { // in SE
+          nodeRegions['se'].push(node);
+        }
+      }
+    }
+
+    this.webWorkers[0].postMessage({nodes:nodeRegions['nw'], branch: barnesHutTree.children.NW, assignment:'constructTree', area:'nw'});
+    this.webWorkers[1].postMessage({nodes:nodeRegions['sw'], branch: barnesHutTree.children.NW, assignment:'constructTree', area:'sw'});
+    this.webWorkers[2].postMessage({nodes:nodeRegions['ne'], branch: barnesHutTree.children.NW, assignment:'constructTree', area:'ne'});
+    this.webWorkers[3].postMessage({nodes:nodeRegions['se'], branch: barnesHutTree.children.NW, assignment:'constructTree', area:'se'});
+
+    // place the nodes one by one recursively
+    for (i = 0; i < nodeCount; i++) {
+      node = nodes[nodeIndices[i]];
+      this._placeInTree(barnesHutTree.root,node);
+    }
+
+    // make global
+    this.barnesHutTree = barnesHutTree;
+  },
+
+  /**
+   * This function constructs the barnesHut tree recursively. It creates the root, splits it and starts placing the nodes.
+   *
+   * @param nodes
+   * @param nodeIndices
+   * @private
+   */
+  _formBarnesHutTree : function(nodes,nodeIndices) {
+    var node;
+    var nodeCount = nodeIndices.length;
+
+    var minX = Number.MAX_VALUE,
+        minY = Number.MAX_VALUE,
+        maxX =-Number.MAX_VALUE,
+        maxY =-Number.MAX_VALUE;
 
     // get the range of the nodes
     for (var i = 0; i < nodeCount; i++) {
@@ -142,14 +255,21 @@ var barnesHutMixin = {
     }};
     this._splitBranch(barnesHutTree.root);
 
+    var simplifiedNodes = [];
     // place the nodes one by one recursively
     for (i = 0; i < nodeCount; i++) {
       node = nodes[nodeIndices[i]];
+      simplifiedNodes.push({x:node.x,y:node.y,mass:node.mass, height:node.height, width:node.width, radius: node.radius});
+    }
+
+    // place the nodes one by one recursively
+    for (i = 0; i < nodeCount; i++) {
+      node = simplifiedNodes[i];
       this._placeInTree(barnesHutTree.root,node);
     }
 
     // make global
-    this.barnesHutTree = barnesHutTree
+    this.barnesHutTree = barnesHutTree;
   },
 
 
@@ -178,18 +298,18 @@ var barnesHutMixin = {
 
     if (parentBranch.children.NW.range.maxX > node.x) { // in NW or SW
       if (parentBranch.children.NW.range.maxY > node.y) { // in NW
-        this._placeInRegion(parentBranch,node,"NW");
+        this._placeInRegion(parentBranch,node,'NW');
       }
       else { // in SW
-        this._placeInRegion(parentBranch,node,"SW");
+        this._placeInRegion(parentBranch,node,'SW');
       }
     }
     else { // in NE or SE
       if (parentBranch.children.NW.range.maxY > node.y) { // in NE
-        this._placeInRegion(parentBranch,node,"NE");
+        this._placeInRegion(parentBranch,node,'NE');
       }
       else { // in SE
-        this._placeInRegion(parentBranch,node,"SE");
+        this._placeInRegion(parentBranch,node,'SE');
       }
     }
   },
@@ -209,7 +329,7 @@ var barnesHutMixin = {
             parentBranch.children[region].children.data.y == node.y) {
           node.x += Math.random();
           node.y += Math.random();
-          this._placeInTree(parentBranch,node, true);
+          this._placeInTree(parentBranch,node,true);
         }
         else {
           this._splitBranch(parentBranch.children[region]);
@@ -239,10 +359,10 @@ var barnesHutMixin = {
     }
     parentBranch.childrenCount = 4;
     parentBranch.children.data = null;
-    this._insertRegion(parentBranch,"NW");
-    this._insertRegion(parentBranch,"NE");
-    this._insertRegion(parentBranch,"SW");
-    this._insertRegion(parentBranch,"SE");
+    this._insertRegion(parentBranch,'NW');
+    this._insertRegion(parentBranch,'NE');
+    this._insertRegion(parentBranch,'SW');
+    this._insertRegion(parentBranch,'SE');
 
     if (containedNode != null) {
       this._placeInTree(parentBranch,containedNode);
@@ -264,25 +384,25 @@ var barnesHutMixin = {
     var minX,maxX,minY,maxY;
     var childSize = 0.5 * parentBranch.size;
     switch (region) {
-      case "NW":
+      case 'NW':
         minX = parentBranch.range.minX;
         maxX = parentBranch.range.minX + childSize;
         minY = parentBranch.range.minY;
         maxY = parentBranch.range.minY + childSize;
         break;
-      case "NE":
+      case 'NE':
         minX = parentBranch.range.minX + childSize;
         maxX = parentBranch.range.maxX;
         minY = parentBranch.range.minY;
         maxY = parentBranch.range.minY + childSize;
         break;
-      case "SW":
+      case 'SW':
         minX = parentBranch.range.minX;
         maxX = parentBranch.range.minX + childSize;
         minY = parentBranch.range.minY + childSize;
         maxY = parentBranch.range.maxY;
         break;
-      case "SE":
+      case 'SE':
         minX = parentBranch.range.minX + childSize;
         maxX = parentBranch.range.maxX;
         minY = parentBranch.range.minY + childSize;
@@ -332,7 +452,7 @@ var barnesHutMixin = {
    */
   _drawBranch : function(branch,ctx,color) {
     if (color === undefined) {
-      color = "#FF0000";
+      color = '#FF0000';
     }
 
     if (branch.childrenCount == 4) {

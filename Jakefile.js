@@ -91,6 +91,7 @@ task('build', {async: true}, function () {
       './src/graph/graphMixins/physics/HierarchialRepulsion.js',
       './src/graph/graphMixins/physics/BarnesHut.js',
       './src/graph/graphMixins/physics/Repulsion.js',
+      './src/graph/graphMixins/MinionsMixin.js',
       './src/graph/graphMixins/HierarchicalLayoutMixin.js',
       './src/graph/graphMixins/ManipulationMixin.js',
       './src/graph/graphMixins/SectorsMixin.js',

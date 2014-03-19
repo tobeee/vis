@@ -1,0 +1,3659 @@
+<!doctype html>
+<html>
+
+<head>
+    <title></title>
+    <script type="text/javascript" src="../../dist/vis.js"></script>
+    <link href='../../dist/vis.css' rel='stylesheet' type='text/css' />
+    <style>
+        #mygraph {
+            border: 1px solid lightgray;
+        }
+        .graph:hover {
+            font-weight: bold;
+        }
+        .scrollable {
+            overflow-y: scroll;
+            display: block;
+            height: 900px;
+        }
+        .center {
+            text-align: center
+        }
+        .title {
+            font-size: 63px;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        }
+        table {
+            width: 100%;
+            height: 100%
+        }
+        body {
+            overflow: hidden;
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+<table>
+<tr>
+<td>
+<div>
+<table class='scrollable'>
+<thead>
+<tr>
+    <th>Graph #</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+    <td id=0><a href='javascript:displayGraph(0)'>All</a>
+    </td>
+</tr>
+<tr>
+    <td class='graph' id='67'><a href='javascript:displayGraph(67)'>67</a>
+    </td>
+</tr>
+<tr>
+    <td class='graph' id='66'><a href='javascript:displayGraph(66)'>66</a>
+    </td>
+</tr>
+<tr>
+    <td class='graph' id='65'><a href='javascript:displayGraph(65)'>65</a>
+    </td>
+</tr>
+<tr>
+    <td class='graph' id='64'><a href='javascript:displayGraph(64)'>64</a>
+    </td>
+</tr>
+<tr>
+    <td class='graph' id='63'><a href='javascript:displayGraph(63)'>63</a>
+    </td>
+</tr>
+<tr>
+    <td class='graph' id='62'><a href='javascript:displayGraph(62)'>62</a>
+    </td>
+</tr>
+<tr>
+    <td class='graph' id='61'><a href='javascript:displayGraph(61)'>61</a>
+    </td>
+</tr>
+<tr>
+    <td class='graph' id='60'><a href='javascript:displayGraph(60)'>60</a>
+    </td>
+</tr>
+<tr>
+    <td class='graph' id='59'><a href='javascript:displayGraph(59)'>59</a>
+    </td>
+</tr>
+<tr>
+    <td class='graph' id='58'><a href='javascript:displayGraph(58)'>58</a>
+    </td>
+</tr>
+<tr>
+    <td class='graph' id='57'><a href='javascript:displayGraph(57)'>57</a>
+    </td>
+</tr>
+<tr>
+    <td class='graph' id='56'><a href='javascript:displayGraph(56)'>56</a>
+    </td>
+</tr>
+<tr>
+    <td class='graph' id='55'><a href='javascript:displayGraph(55)'>55</a>
+    </td>
+</tr>
+<tr>
+    <td class='graph' id='54'><a href='javascript:displayGraph(54)'>54</a>
+    </td>
+</tr>
+<tr>
+    <td class='graph' id='53'><a href='javascript:displayGraph(53)'>53</a>
+    </td>
+</tr>
+<tr>
+    <td class='graph' id='52'><a href='javascript:displayGraph(52)'>52</a>
+    </td>
+</tr>
+<tr>
+    <td class='graph' id='51'><a href='javascript:displayGraph(51)'>51</a>
+    </td>
+</tr>
+<tr>
+    <td class='graph' id='50'><a href='javascript:displayGraph(50)'>50</a>
+    </td>
+</tr>
+<tr>
+    <td class='graph' id='49'><a href='javascript:displayGraph(49)'>49</a>
+    </td>
+</tr>
+<tr>
+    <td class='graph' id='48'><a href='javascript:displayGraph(48)'>48</a>
+    </td>
+</tr>
+<tr>
+    <td class='graph' id='47'><a href='javascript:displayGraph(47)'>47</a>
+    </td>
+</tr>
+<tr>
+    <td class='graph' id='46'><a href='javascript:displayGraph(46)'>46</a>
+    </td>
+</tr>
+<tr>
+    <td class='graph' id='45'><a href='javascript:displayGraph(45)'>45</a>
+    </td>
+</tr>
+<tr>
+    <td class='graph' id='44'><a href='javascript:displayGraph(44)'>44</a>
+    </td>
+</tr>
+<tr>
+    <td class='graph' id='43'><a href='javascript:displayGraph(43)'>43</a>
+    </td>
+</tr>
+<tr>
+    <td class='graph' id='42'><a href='javascript:displayGraph(42)'>42</a>
+    </td>
+</tr>
+<tr>
+    <td class='graph' id='41'><a href='javascript:displayGraph(41)'>41</a>
+    </td>
+</tr>
+<tr>
+    <td class='graph' id='40'><a href='javascript:displayGraph(40)'>40</a>
+    </td>
+</tr>
+<tr>
+    <td class='graph' id='39'><a href='javascript:displayGraph(39)'>39</a>
+    </td>
+</tr>
+<tr>
+    <td class='graph' id='38'><a href='javascript:displayGraph(38)'>38</a>
+    </td>
+</tr>
+<tr>
+    <td class='graph' id='37'><a href='javascript:displayGraph(37)'>37</a>
+    </td>
+</tr>
+<tr>
+    <td class='graph' id='36'><a href='javascript:displayGraph(36)'>36</a>
+    </td>
+</tr>
+<tr>
+    <td class='graph' id='35'><a href='javascript:displayGraph(35)'>35</a>
+    </td>
+</tr>
+<tr>
+    <td class='graph' id='34'><a href='javascript:displayGraph(34)'>34</a>
+    </td>
+</tr>
+<tr>
+    <td class='graph' id='33'><a href='javascript:displayGraph(33)'>33</a>
+    </td>
+</tr>
+<tr>
+    <td class='graph' id='32'><a href='javascript:displayGraph(32)'>32</a>
+    </td>
+</tr>
+<tr>
+    <td class='graph' id='31'><a href='javascript:displayGraph(31)'>31</a>
+    </td>
+</tr>
+<tr>
+    <td class='graph' id='30'><a href='javascript:displayGraph(30)'>30</a>
+    </td>
+</tr>
+<tr>
+    <td class='graph' id='29'><a href='javascript:displayGraph(29)'>29</a>
+    </td>
+</tr>
+<tr>
+    <td class='graph' id='28'><a href='javascript:displayGraph(28)'>28</a>
+    </td>
+</tr>
+<tr>
+    <td class='graph' id='27'><a href='javascript:displayGraph(27)'>27</a>
+    </td>
+</tr>
+<tr>
+    <td class='graph' id='26'><a href='javascript:displayGraph(26)'>26</a>
+    </td>
+</tr>
+<tr>
+    <td class='graph' id='25'><a href='javascript:displayGraph(25)'>25</a>
+    </td>
+</tr>
+<tr>
+    <td class='graph' id='24'><a href='javascript:displayGraph(24)'>24</a>
+    </td>
+</tr>
+<tr>
+    <td class='graph' id='23'><a href='javascript:displayGraph(23)'>23</a>
+    </td>
+</tr>
+<tr>
+    <td class='graph' id='22'><a href='javascript:displayGraph(22)'>22</a>
+    </td>
+</tr>
+<tr>
+    <td class='graph' id='21'><a href='javascript:displayGraph(21)'>21</a>
+    </td>
+</tr>
+<tr>
+    <td class='graph' id='20'><a href='javascript:displayGraph(20)'>20</a>
+    </td>
+</tr>
+<tr>
+    <td class='graph' id='19'><a href='javascript:displayGraph(19)'>19</a>
+    </td>
+</tr>
+<tr>
+    <td class='graph' id='18'><a href='javascript:displayGraph(18)'>18</a>
+    </td>
+</tr>
+<tr>
+    <td class='graph' id='17'><a href='javascript:displayGraph(17)'>17</a>
+    </td>
+</tr>
+<tr>
+    <td class='graph' id='16'><a href='javascript:displayGraph(16)'>16</a>
+    </td>
+</tr>
+<tr>
+    <td class='graph' id='15'><a href='javascript:displayGraph(15)'>15</a>
+    </td>
+</tr>
+<tr>
+    <td class='graph' id='14'><a href='javascript:displayGraph(14)'>14</a>
+    </td>
+</tr>
+<tr>
+    <td class='graph' id='13'><a href='javascript:displayGraph(13)'>13</a>
+    </td>
+</tr>
+<tr>
+    <td class='graph' id='12'><a href='javascript:displayGraph(12)'>12</a>
+    </td>
+</tr>
+<tr>
+    <td class='graph' id='11'><a href='javascript:displayGraph(11)'>11</a>
+    </td>
+</tr>
+<tr>
+    <td class='graph' id='10'><a href='javascript:displayGraph(10)'>10</a>
+    </td>
+</tr>
+<tr>
+    <td class='graph' id='9'><a href='javascript:displayGraph(9)'>09</a>
+    </td>
+</tr>
+<tr>
+    <td class='graph' id='8'><a href='javascript:displayGraph(8)'>08</a>
+    </td>
+</tr>
+<tr>
+    <td class='graph' id='7'><a href='javascript:displayGraph(7)'>07</a>
+    </td>
+</tr>
+<tr>
+    <td class='graph' id='6'><a href='javascript:displayGraph(6)'>06</a>
+    </td>
+</tr>
+<tr>
+    <td class='graph' id='5'><a href='javascript:displayGraph(5)'>05</a>
+    </td>
+</tr>
+<tr>
+    <td class='graph' id='4'><a href='javascript:displayGraph(4)'>04</a>
+    </td>
+</tr>
+<tr>
+    <td class='graph' id='3'><a href='javascript:displayGraph(3)'>03</a>
+    </td>
+</tr>
+<tr>
+    <td class='graph' id='2'><a href='javascript:displayGraph(2)'>02</a>
+    </td>
+</tr>
+<tr>
+    <td class='graph' id='1'><a href='javascript:displayGraph(1)'>01</a>
+    </td>
+</tr>
+</tbody>
+</table>
+</div>
+</td>
+<td>
+    <div class='center'>
+        <h1><span id='title' class='title'>All Graphs</span></h1>
+    </div>
+    <div id='mygraph'></div>
+</td>
+</table>
+<script type='text/javascript'>
+var nodesByGraph = {
+    'graphNodes': [
+        [{
+            id: 'YXYXYXY',
+            label: 'YXYXYXY\n(ZYYYZnY / YXZYXYYY)',
+            group: 'ZYYYZnY_YXZYXYYY'
+        }, {
+            id: 'YXXXYYXZXZ',
+            label: 'YXXXYYXZXZ\n(ZZ nXYYYYX YXXZYXZ)',
+            group: 'ZZ_nXYYYYX_YXXZYXZ'
+        }],
+        [{
+            id: 'YXYXYXY',
+            label: 'YXYXYXY\n(ZYYYZnY / YXZYXYYY)',
+            group: 'ZYYYZnY_YXZYXYYY'
+        }, {
+            id: 'YZYYYY',
+            label: 'YZYYYY\n(ZZ nXYYYYX YXXZYXZ)',
+            group: 'ZZ_nXYYYYX_YXXZYXZ'
+        }, {
+            id: 'YXXXYYXZXZ',
+            label: 'YXXXYYXZXZ\n(ZZ nXYYYYX YXXZYXZ)',
+            group: 'ZZ_nXYYYYX_YXXZYXZ'
+        }],
+        [{
+            id: 'ZYY XnYXYZZYXYX',
+            label: 'ZYY XnYXYZZYXYX\n(ZZ nXYYYYX YXXZYXZ)',
+            group: 'ZZ_nXYYYYX_YXXZYXZ'
+        }, {
+            id: 'ZYYnXYYY',
+            label: 'ZYYnXYYY\n(ZZ nXYYYYX YXXZYXZ)',
+            group: 'ZZ_nXYYYYX_YXXZYXZ'
+        }, {
+            id: 'YZXXZYXXYYXZXZ',
+            label: 'YZXXZYXXYYXZXZ\n(ZYYYZnY / YXZYXYYY)',
+            group: 'ZYYYZnY_YXZYXYYY'
+        }, {
+            id: 'YZXXZYXXYYXZXZ | ZYYY | YXZXYXXXXZYYnXYZZ',
+            label: 'YXZXYXXXXZYYnXYZZ\n(ZYYXXZZYXYn)',
+            group: 'ZYYXXZZYXYn'
+        }],
+        [{
+            id: 'ZZYXZXZ',
+            label: 'ZZYXZXZ\n(ZYYYZnY / YXZYXYYY)',
+            group: 'ZYYYZnY_YXZYXYYY'
+        }, {
+            id: 'ZYYnXYYY',
+            label: 'ZYYnXYYY\n(ZZ nXYYYYX YXXZYXZ)',
+            group: 'ZZ_nXYYYYX_YXXZYXZ'
+        }],
+        [{
+            id: 'ZZYXZXZ',
+            label: 'ZZYXZXZ\n(ZYYYZnY / YXZYXYYY)',
+            group: 'ZYYYZnY_YXZYXYYY'
+        }, {
+            id: 'ZYYnXYYY',
+            label: 'ZYYnXYYY\n(ZZ nXYYYYX YXXZYXZ)',
+            group: 'ZZ_nXYYYYX_YXXZYXZ'
+        }, {
+            id: 'XYYYYYYX',
+            label: 'XYYYYYYX\n(ZZ nXYYYYX YXXZYXZ)',
+            group: 'ZZ_nXYYYYX_YXXZYXZ'
+        }],
+        [{
+            id: 'ZZYXZXZ',
+            label: 'ZZYXZXZ\n(ZYYYZnY / YXZYXYYY)',
+            group: 'ZYYYZnY_YXZYXYYY'
+        }, {
+            id: 'ZYYnXYYY',
+            label: 'ZYYnXYYY\n(ZZ nXYYYYX YXXZYXZ)',
+            group: 'ZZ_nXYYYYX_YXXZYXZ'
+        }, {
+            id: 'ZYXZY',
+            label: 'ZYXZY\n(ZZ nXYYYYX YXXZYXZ)',
+            group: 'ZZ_nXYYYYX_YXXZYXZ'
+        }],
+        [{
+            id: 'ZZYXZXZ',
+            label: 'ZZYXZXZ\n(ZYYYZnY / YXZYXYYY)',
+            group: 'ZYYYZnY_YXZYXYYY'
+        }],
+        [{
+            id: 'ZZYXZXZ',
+            label: 'ZZYXZXZ\n(ZYYYZnY / YXZYXYYY)',
+            group: 'ZYYYZnY_YXZYXYYY'
+        }],
+        [{
+            id: 'ZZYXYYYYYXZY',
+            label: 'ZZYXYYYYYXZY\n(ZZ nXYYYYX YXXZYXZ)',
+            group: 'ZZ_nXYYYYX_YXXZYXZ'
+        }, {
+            id: 'ZZYXXnXYXZXZ',
+            label: 'ZZYXXnXYXZXZ\n(YnZXY YXYXZYZX)',
+            group: 'YnXnYYn'
+        }, {
+            id: 'ZYYYYX',
+            label: 'ZYYYYX\n(ZYYXXZZYXYn)',
+            group: 'ZYYXXZZYXYn'
+        }, {
+            id: 'YXXXYYXZXZ',
+            label: 'YXXXYYXZXZ\n(ZZ nXYYYYX YXXZYXZ)',
+            group: 'ZZ_nXYYYYX_YXXZYXZ'
+        }],
+        [{
+            id: 'XXYnYXZ',
+            label: 'XXYnYXZ\n(ZYYYZnY / YXZYXYYY)',
+            group: 'ZYYYZnY_YXZYXYYY'
+        }],
+        [{
+            id: 'XXYnYXZ',
+            label: 'XXYnYXZ\n(ZYYYZnY / YXZYXYYY)',
+            group: 'ZYYYZnY_YXZYXYYY'
+        }],
+        [{
+            id: 'YXYYYYXZnXXZZY',
+            label: 'YXYYYYXZnXXZZY\n(ZYYYZnY / YXZYXYYY)',
+            group: 'ZYYYZnY_YXZYXYYY'
+        }, {
+            id: 'ZZYXZX',
+            label: 'ZZYXZX\n(ZYYYZnY / YXZYXYYY)',
+            group: 'ZYYYZnY_YXZYXYYY'
+        }, {
+            id: 'YYYXYXXYX',
+            label: 'YYYXYXXYX\n(ZYYYZnY / YXZYXYYY)',
+            group: 'ZYYYZnY_YXZYXYYY'
+        }, {
+            id: 'YXZZXY',
+            label: 'YXZZXY\n(ZYYYZnY / YXZYXYYY)',
+            group: 'ZYYYZnY_YXZYXYYY'
+        }],
+        [{
+            id: 'ZYYZXXZZ',
+            label: 'ZYYZXXZZ\n(ZYYYZnY / YXZYXYYY)',
+            group: 'ZYYYZnY_YXZYXYYY'
+        }, {
+            id: 'ZYYnXYYY',
+            label: 'ZYYnXYYY\n(ZZ nXYYYYX YXXZYXZ)',
+            group: 'ZZ_nXYYYYX_YXXZYXZ'
+        }, {
+            id: 'ZYYZXXZZ | ZYYY | ZYYZXXZZ ZYY',
+            label: 'ZYYZXXZZ ZYY\n(ZYYXXZZYXYn)',
+            group: 'ZYYXXZZYXYn'
+        }],
+        [{
+            id: 'YYXZXYXXY',
+            label: 'YYXZXYXXY\n(ZYYXXZZYXYn)',
+            group: 'ZYYXXZZYXYn'
+        }],
+        [{
+            id: 'YZXXZYXXYYXZXZ',
+            label: 'YZXXZYXXYYXZXZ\n(ZYYYZnY / YXZYXYYY)',
+            group: 'ZYYYZnY_YXZYXYYY'
+        }, {
+            id: 'ZZYXYYXYX.ZYY',
+            label: 'ZZYXYYXYX.ZYY\n(ZYYYZnY / YXZYXYYY)',
+            group: 'ZYYYZnY_YXZYXYYY'
+        }],
+        [{
+            id: 'XXnXYYY',
+            label: 'XXnXYYY\n(ZYYYZnY / YXZYXYYY)',
+            group: 'ZYYYZnY_YXZYXYYY'
+        }, {
+            id: 'XYYnYYYYZX | ZXZXYXY',
+            label: 'ZXZXYXY\n(ZYYXXZZYXYn)',
+            group: 'ZYYXXZZYXYn'
+        }, {
+            id: 'XYYnYYYYZX',
+            label: 'XYYnYYYYZX\n(ZYYYZnY / YXZYXYYY)',
+            group: 'ZYYYZnY_YXZYXYYY'
+        }],
+        [{
+            id: 'XXYnYXZ | ZYYY | XXZnYYZYXnXY',
+            label: 'XXZnYYZYXnXY\n(ZYYXXZZYXYn)',
+            group: 'ZYYXXZZYXYn'
+        }, {
+            id: 'XXYnYXZ',
+            label: 'XXYnYXZ\n(ZYYYZnY / YXZYXYYY)',
+            group: 'ZYYYZnY_YXZYXYYY'
+        }, {
+            id: 'ZYXYXY',
+            label: 'ZYXYXY\n(ZZ nXYYYYX YXXZYXZ)',
+            group: 'ZZ_nXYYYYX_YXXZYXZ'
+        }, {
+            id: 'YZXYXZXXZX',
+            label: 'YZXYXZXXZX\n(YnZXY YXYXZYZX)',
+            group: 'YnXnYYn'
+        }],
+        [{
+            id: 'XXYnYXZ | ZYYY | XXZnYYZYXnXY',
+            label: 'XXZnYYZYXnXY\n(ZYYXXZZYXYn)',
+            group: 'ZYYXXZZYXYn'
+        }, {
+            id: 'XXYnYXZ',
+            label: 'XXYnYXZ\n(ZYYYZnY / YXZYXYYY)',
+            group: 'ZYYYZnY_YXZYXYYY'
+        }, {
+            id: 'ZYYnXYYY',
+            label: 'ZYYnXYYY\n(ZZ nXYYYYX YXXZYXZ)',
+            group: 'ZZ_nXYYYYX_YXXZYXZ'
+        }],
+        [{
+            id: 'ZYY XnYXYZZYXYX',
+            label: 'ZYY XnYXYZZYXYX\n(ZZ nXYYYYX YXXZYXZ)',
+            group: 'ZZ_nXYYYYX_YXXZYXZ'
+        }, {
+            id: 'ZYYnXYYY',
+            label: 'ZYYnXYYY\n(ZZ nXYYYYX YXXZYXZ)',
+            group: 'ZZ_nXYYYYX_YXXZYXZ'
+        }, {
+            id: 'YZYXYZYXZXZXY',
+            label: 'YZYXYZYXZXZXY\n(ZYYXXZZYXYn)',
+            group: 'ZYYXXZZYXYn'
+        }, {
+            id: 'YYXYXYYXnY',
+            label: 'YYXYXYYXnY\n(YnZXY YXYXZYZX)',
+            group: 'YnXnYYn'
+        }],
+        [{
+            id: 'YZYXYZYXZXZXY',
+            label: 'YZYXYZYXZXZXY\n(ZYYXXZZYXYn)',
+            group: 'ZYYXXZZYXYn'
+        }, {
+            id: 'ZXXZXYZY',
+            label: 'ZXXZXYZY\n(YnZXY YXYXZYZX)',
+            group: 'YnXnYYn'
+        }],
+        [{
+            id: 'ZZYXZX | ZYYY | XXYYZYXn',
+            label: 'XXYYZYXn\n(ZYYXXZZYXYn)',
+            group: 'ZYYXXZZYXYn'
+        }, {
+            id: 'ZZYXZX',
+            label: 'ZZYXZX\n(ZYYYZnY / YXZYXYYY)',
+            group: 'ZYYYZnY_YXZYXYYY'
+        }, {
+            id: 'ZYYnXYYY',
+            label: 'ZYYnXYYY\n(ZZ nXYYYYX YXXZYXZ)',
+            group: 'ZZ_nXYYYYX_YXXZYXZ'
+        }],
+        [{
+            id: 'XYXnXnY',
+            label: 'XYXnXnY\n(ZYYYZnY / YXZYXYYY)',
+            group: 'ZYYYZnY_YXZYXYYY'
+        }, {
+            id: 'YYZYZYXZ',
+            label: 'YYZYZYXZ\n(ZZ nXYYYYX YXXZYXZ)',
+            group: 'ZZ_nXYYYYX_YXXZYXZ'
+        }, {
+            id: 'YXXXYYXZXZ',
+            label: 'YXXXYYXZXZ\n(ZZ nXYYYYX YXXZYXZ)',
+            group: 'ZZ_nXYYYYX_YXXZYXZ'
+        }, {
+            id: 'YYZXZYn YYYXXZY',
+            label: 'YYZXZYn YYYXXZY\n(ZZ nXYYYYX YXXZYXZ)',
+            group: 'ZZ_nXYYYYX_YXXZYXZ'
+        }],
+        [{
+            id: 'ZZYXZX',
+            label: 'ZZYXZX\n(ZYYYZnY / YXZYXYYY)',
+            group: 'ZYYYZnY_YXZYXYYY'
+        }, {
+            id: 'ZZYXZXZ',
+            label: 'ZZYXZXZ\n(ZYYYZnY / YXZYXYYY)',
+            group: 'ZYYYZnY_YXZYXYYY'
+        }, {
+            id: 'ZZYXZX | ZYYY | XXYYZYXn',
+            label: 'XXYYZYXn\n(ZYYXXZZYXYn)',
+            group: 'ZYYXXZZYXYn'
+        }],
+        [],
+        [{
+            id: 'YXXnX YZnX XZZY',
+            label: 'YXXnX YZnX XZZY\n(ZYYYZnY / YXZYXYYY)',
+            group: 'ZYYYZnY_YXZYXYYY'
+        }, {
+            id: 'ZYYnXYYY',
+            label: 'ZYYnXYYY\n(ZZ nXYYYYX YXXZYXZ)',
+            group: 'ZZ_nXYYYYX_YXXZYXZ'
+        }, {
+            id: 'YXXXYYXZXZ',
+            label: 'YXXXYYXZXZ\n(ZZ nXYYYYX YXXZYXZ)',
+            group: 'ZZ_nXYYYYX_YXXZYXZ'
+        }, {
+            id: 'YYXXXYYYXXYYX',
+            label: 'YYXXXYYYXXYYX\n(ZYYXXZZYXYn)',
+            group: 'ZYYXXZZYXYn'
+        }],
+        [{
+            id: 'ZYY XnYXYZZYXYX',
+            label: 'ZYY XnYXYZZYXYX\n(ZZ nXYYYYX YXXZYXZ)',
+            group: 'ZZ_nXYYYYX_YXXZYXZ'
+        }, {
+            id: 'ZYYnXYYY',
+            label: 'ZYYnXYYY\n(ZZ nXYYYYX YXXZYXZ)',
+            group: 'ZZ_nXYYYYX_YXXZYXZ'
+        }, {
+            id: 'ZYY XnYXYZZYXYX | ZYYY | XZYZYZYXYYYXYYXY',
+            label: 'XZYZYZYXYYYXYYXY\n(ZYYXXZZYXYn)',
+            group: 'ZYYXXZZYXYn'
+        }],
+        [{
+            id: 'ZYY XnYXYZZYXYX',
+            label: 'ZYY XnYXYZZYXYX\n(ZZ nXYYYYX YXXZYXZ)',
+            group: 'ZZ_nXYYYYX_YXXZYXZ'
+        }, {
+            id: 'ZYYnXYYY',
+            label: 'ZYYnXYYY\n(ZZ nXYYYYX YXXZYXZ)',
+            group: 'ZZ_nXYYYYX_YXXZYXZ'
+        }, {
+            id: 'YYnXYXYX',
+            label: 'YYnXYXYX\n(ZYYYZnY / YXZYXYYY)',
+            group: 'ZYYYZnY_YXZYXYYY'
+        }, {
+            id: 'YXYXYZXY',
+            label: 'YXYXYZXY\n(ZYYYZnY / YXZYXYYY)',
+            group: 'ZYYYZnY_YXZYXYYY'
+        }, {
+            id: 'YXXXYYXZXZ',
+            label: 'YXXXYYXZXZ\n(ZZ nXYYYYX YXXZYXZ)',
+            group: 'ZZ_nXYYYYX_YXXZYXZ'
+        }, {
+            id: 'YXYXYZXY | ZYYY | ZYYYYnYZYZXXY',
+            label: 'ZYYYYnYZYZXXY\n(ZYYXXZZYXYn)',
+            group: 'ZYYXXZZYXYn'
+        }],
+        [{
+            id: 'YXYXYZXY',
+            label: 'YXYXYZXY\n(ZYYYZnY / YXZYXYYY)',
+            group: 'ZYYYZnY_YXZYXYYY'
+        }, {
+            id: 'YYnXYXYX',
+            label: 'YYnXYXYX\n(ZYYYZnY / YXZYXYYY)',
+            group: 'ZYYYZnY_YXZYXYYY'
+        }, {
+            id: 'YXYXYZXY | ZYYY | ZYYYYnYZYZXXY',
+            label: 'ZYYYYnYZYZXXY\n(ZYYXXZZYXYn)',
+            group: 'ZYYXXZZYXYn'
+        }],
+        [{
+            id: 'YZXXZYXXYYXZXZ',
+            label: 'YZXXZYXXYYXZXZ\n(ZYYYZnY / YXZYXYYY)',
+            group: 'ZYYYZnY_YXZYXYYY'
+        }, {
+            id: 'ZYY XnYXYZZYXYX',
+            label: 'ZYY XnYXYZZYXYX\n(ZZ nXYYYYX YXXZYXZ)',
+            group: 'ZZ_nXYYYYX_YXXZYXZ'
+        }, {
+            id: 'YZXXZYXXYYXZXZ | ZYYY | YXXXZYXYnXXnXY',
+            label: 'YXXXZYXYnXXnXY\n(ZYYXXZZYXYn)',
+            group: 'ZYYXXZZYXYn'
+        }],
+        [{
+            id: 'YYZYZ | ZYYY | ZYYnXYZZYXYYY',
+            label: 'ZYYnXYZZYXYYY\n(ZYYXXZZYXYn)',
+            group: 'ZYYXXZZYXYn'
+        }, {
+            id: 'YYZYZ',
+            label: 'YYZYZ\n(ZYYYZnY / YXZYXYYY)',
+            group: 'ZYYYZnY_YXZYXYYY'
+        }],
+        [{
+            id: 'YYZYZ | ZYYY | ZYYnXYZZYXYYY',
+            label: 'ZYYnXYZZYXYYY\n(ZYYXXZZYXYn)',
+            group: 'ZYYXXZZYXYn'
+        }, {
+            id: 'YYZYZ',
+            label: 'YYZYZ\n(ZYYYZnY / YXZYXYYY)',
+            group: 'ZYYYZnY_YXZYXYYY'
+        }],
+        [{
+            id: 'YZnXYXYYYY',
+            label: 'YZnXYXYYYY\n(ZYYYZnY / YXZYXYYY)',
+            group: 'ZYYYZnY_YXZYXYYY'
+        }, {
+            id: 'YYXZXZYZ.nXY',
+            label: 'YYXZXZYZ.nXY\n(ZZ nXYYYYX YXXZYXZ)',
+            group: 'ZZ_nXYYYYX_YXXZYXZ'
+        }, {
+            id: 'YZnXYXYYYY | ZYYY | YYZXX',
+            label: 'YYZXX\n(ZYYXXZZYXYn)',
+            group: 'ZYYXXZZYXYn'
+        }],
+        [{
+            id: 'ZXYZYZXYZXX | ZYYY | YYXZYXZY',
+            label: 'YYXZYXZY\n(ZYYXXZZYXYn)',
+            group: 'ZYYXXZZYXYn'
+        }, {
+            id: 'ZXYZYZXYZXX',
+            label: 'ZXYZYZXYZXX\n(ZYYYZnY / YXZYXYYY)',
+            group: 'ZYYYZnY_YXZYXYYY'
+        }, {
+            id: 'ZZYXZXZ',
+            label: 'ZZYXZXZ\n(ZYYYZnY / YXZYXYYY)',
+            group: 'ZYYYZnY_YXZYXYYY'
+        }],
+        [{
+            id: 'ZZYXZXZ',
+            label: 'ZZYXZXZ\n(ZYYYZnY / YXZYXYYY)',
+            group: 'ZYYYZnY_YXZYXYYY'
+        }, {
+            id: 'ZZZY.YY',
+            label: 'ZZZY.YY\n(ZZ nXYYYYX YXXZYXZ)',
+            group: 'ZZ_nXYYYYX_YXXZYXZ'
+        }, {
+            id: 'ZXYZYZXYZXX | ZYYY | YYXZYXZY',
+            label: 'YYXZYXZY\n(ZYYXXZZYXYn)',
+            group: 'ZYYXXZZYXYn'
+        }, {
+            id: 'ZXYZYZXYZXX',
+            label: 'ZXYZYZXYZXX\n(ZYYYZnY / YXZYXYYY)',
+            group: 'ZYYYZnY_YXZYXYYY'
+        }, {
+            id: 'XXYXYZXX',
+            label: 'XXYXYZXX\n(ZZ nXYYYYX YXXZYXZ)',
+            group: 'ZZ_nXYYYYX_YXXZYXZ'
+        }],
+        [{
+            id: 'ZYY XnYXYZZYXYX',
+            label: 'ZYY XnYXYZZYXYX\n(ZZ nXYYYYX YXXZYXZ)',
+            group: 'ZZ_nXYYYYX_YXXZYXZ'
+        }, {
+            id: 'ZYYnXYYY',
+            label: 'ZYYnXYYY\n(ZZ nXYYYYX YXXZYXZ)',
+            group: 'ZZ_nXYYYYX_YXXZYXZ'
+        }, {
+            id: 'YZXXZYXXYYXZXZ',
+            label: 'YZXXZYXXYYXZXZ\n(ZYYYZnY / YXZYXYYY)',
+            group: 'ZYYYZnY_YXZYXYYY'
+        }, {
+            id: 'YXnYZZYYnXYYYYXY | ZYYY | YnXYXXnZYYZYYY',
+            label: 'YnXYXXnZYYZYYY\n(ZYYXXZZYXYn)',
+            group: 'ZYYXXZZYXYn'
+        }, {
+            id: 'YXnYZZYYnXYYYYXY',
+            label: 'YXnYZZYYnXYYYYXY\n(ZYYYZnY / YXZYXYYY)',
+            group: 'ZYYYZnY_YXZYXYYY'
+        }],
+        [{
+            id: 'nXYY.nXY',
+            label: 'nXYY.nXY\n(ZYYYZnY / YXZYXYYY)',
+            group: 'ZYYYZnY_YXZYXYYY'
+        }],
+        [{
+            id: 'ZZYXZX | ZYYY | ZYYYYnZYZYXnX',
+            label: 'ZYYYYnZYZYXnX\n(ZYYXXZZYXYn)',
+            group: 'ZYYXXZZYXYn'
+        }, {
+            id: 'ZZYXZX',
+            label: 'ZZYXZX\n(ZYYYZnY / YXZYXYYY)',
+            group: 'ZYYYZnY_YXZYXYYY'
+        }],
+        [{
+            id: 'YXXYXYYYXX | YXXYXYYYXX YYYXZZY',
+            label: 'YXXYXYYYXX YYYXZZY\n(YYYXZZY)',
+            group: 'YYYXZZY'
+        }, {
+            id: 'YXXYXYYYXX',
+            label: 'YXXYXYYYXX\n(ZYYYZnY / YXZYXYYY)',
+            group: 'ZYYYZnY_YXZYXYYY'
+        }, {
+            id: 'ZYnZYXY',
+            label: 'ZYnZYXY\n(ZYYYZnY / YXZYXYYY)',
+            group: 'ZYYYZnY_YXZYXYYY'
+        }, {
+            id: 'YYXZXXYnX',
+            label: 'YYXZXXYnX\n(ZYYXXZZYXYn)',
+            group: 'ZYYXXZZYXYn'
+        }, {
+            id: 'YXZYXZX | ZYYY | YZYXZY',
+            label: 'YZYXZY\n(ZYYXXZZYXYn)',
+            group: 'ZYYXXZZYXYn'
+        }, {
+            id: 'YXZYXZX',
+            label: 'YXZYXZX\n(ZYYYZnY / YXZYXYYY)',
+            group: 'ZYYYZnY_YXZYXYYY'
+        }, {
+            id: 'YXZYXZX | XnYYZXXXYXY',
+            label: 'XnYYZXXXYXY\n(XnYYZXX YXZYXYYY)',
+            group: 'XnYYZXX_YXZYXYYY'
+        }],
+        [{
+            id: 'XYYYYYYYXXXXZ',
+            label: 'XYYYYYYYXXXXZ\n(ZYYXXZZYXYn)',
+            group: 'ZYYXXZZYXYn'
+        }, {
+            id: 'ZZnXYYYYX.nXY',
+            label: 'ZZnXYYYYX.nXY\n(ZZ nXYYYYX YXXZYXZ)',
+            group: 'ZZ_nXYYYYX_YXXZYXZ'
+        }, {
+            id: 'ZYYnXYYY',
+            label: 'ZYYnXYYY\n(ZZ nXYYYYX YXXZYXZ)',
+            group: 'ZZ_nXYYYYX_YXXZYXZ'
+        }, {
+            id: 'YXXXYYXZXZ',
+            label: 'YXXXYYXZXZ\n(ZZ nXYYYYX YXXZYXZ)',
+            group: 'ZZ_nXYYYYX_YXXZYXZ'
+        }],
+        [{
+            id: 'XZZXZYYX YXZYYYXY, YXYYYY ZnZ ZXZYYY Xn XZ',
+            label: 'XZZXZYYX YXZYYYXY, YXYYYY ZnZ ZXZYYY Xn XZ\n(ZYYXXZZYXYn)',
+            group: 'ZYYXXZZYXYn'
+        }, {
+            id: 'ZXYZYZXYZXX',
+            label: 'ZXYZYZXYZXX\n(ZYYYZnY / YXZYXYYY)',
+            group: 'ZYYYZnY_YXZYXYYY'
+        }, {
+            id: 'YXYXYXY',
+            label: 'YXYXYXY\n(ZYYYZnY / YXZYXYYY)',
+            group: 'ZYYYZnY_YXZYXYYY'
+        }, {
+            id: 'YXXXYYXZXZ',
+            label: 'YXXXYYXZXZ\n(ZZ nXYYYYX YXXZYXZ)',
+            group: 'ZZ_nXYYYYX_YXXZYXZ'
+        }],
+        [{
+            id: 'YXXYXYYYXX | YXXYXYYYXX YYYXZZY',
+            label: 'YXXYXYYYXX YYYXZZY\n(YYYXZZY)',
+            group: 'YYYXZZY'
+        }, {
+            id: 'YXXYXYYYXX',
+            label: 'YXXYXYYYXX\n(ZYYYZnY / YXZYXYYY)',
+            group: 'ZYYYZnY_YXZYXYYY'
+        }, {
+            id: 'ZYnZYXY',
+            label: 'ZYnZYXY\n(ZYYYZnY / YXZYXYYY)',
+            group: 'ZYYYZnY_YXZYXYYY'
+        }, {
+            id: 'YZZYYXZ',
+            label: 'YZZYYXZ\n(ZYYYZnY / YXZYXYYY)',
+            group: 'ZYYYZnY_YXZYXYYY'
+        }, {
+            id: 'YXZYXZX | ZYYY | YZYXZY',
+            label: 'YZYXZY\n(ZYYXXZZYXYn)',
+            group: 'ZYYXXZZYXYn'
+        }, {
+            id: 'YXZYXZX',
+            label: 'YXZYXZX\n(ZYYYZnY / YXZYXYYY)',
+            group: 'ZYYYZnY_YXZYXYYY'
+        }, {
+            id: 'YXZYXZX | XnYYZXXXYXY',
+            label: 'XnYYZXXXYXY\n(XnYYZXX YXZYXYYY)',
+            group: 'XnYYZXX_YXZYXYYY'
+        }],
+        [{
+            id: 'ZYY XnYXYZZYXYX',
+            label: 'ZYY XnYXYZZYXYX\n(ZZ nXYYYYX YXXZYXZ)',
+            group: 'ZZ_nXYYYYX_YXXZYXZ'
+        }, {
+            id: 'ZYYnXYYY',
+            label: 'ZYYnXYYY\n(ZZ nXYYYYX YXXZYXZ)',
+            group: 'ZZ_nXYYYYX_YXXZYXZ'
+        }, {
+            id: 'YYnXYXYX',
+            label: 'YYnXYXYX\n(ZYYYZnY / YXZYXYYY)',
+            group: 'ZYYYZnY_YXZYXYYY'
+        }, {
+            id: 'ZXZZZXYY | XXnYZY ZYYYYXY ZYYYZnXYn',
+            label: 'XXnYZY ZYYYYXY ZYYYZnXYn\n(ZYYXXZZYXYn)',
+            group: 'ZYYXXZZYXYn'
+        }, {
+            id: 'ZXZZZXYY',
+            label: 'ZXZZZXYY\n(ZYYYZnY / YXZYXYYY)',
+            group: 'ZYYYZnY_YXZYXYYY'
+        }, {
+            id: 'YXXXYYXZXZ',
+            label: 'YXXXYYXZXZ\n(ZZ nXYYYYX YXXZYXZ)',
+            group: 'ZZ_nXYYYYX_YXXZYXZ'
+        }],
+        [{
+            id: 'ZXZZZXYY | XXnYZY ZYYYYXY ZYYYZnXYn',
+            label: 'XXnYZY ZYYYYXY ZYYYZnXYn\n(ZYYXXZZYXYn)',
+            group: 'ZYYXXZZYXYn'
+        }, {
+            id: 'ZXZZZXYY',
+            label: 'ZXZZZXYY\n(ZYYYZnY / YXZYXYYY)',
+            group: 'ZYYYZnY_YXZYXYYY'
+        }, {
+            id: 'YYnXYXYX',
+            label: 'YYnXYXYX\n(ZYYYZnY / YXZYXYYY)',
+            group: 'ZYYYZnY_YXZYXYYY'
+        }],
+        [{
+            id: 'YYZYZ',
+            label: 'YYZYZ\n(ZYYYZnY / YXZYXYYY)',
+            group: 'ZYYYZnY_YXZYXYYY'
+        }, {
+            id: 'ZYYnXYYY',
+            label: 'ZYYnXYYY\n(ZZ nXYYYYX YXXZYXZ)',
+            group: 'ZZ_nXYYYYX_YXXZYXZ'
+        }, {
+            id: 'ZXXXnX XYYXnYXYn',
+            label: 'ZXXXnX XYYXnYXYn\n(ZYYXXZZYXYn)',
+            group: 'ZYYXXZZYXYn'
+        }],
+        [{
+            id: 'YXX XXnXYY XZZYYYY | YYXnZXXnXYY',
+            label: 'YYXnZXXnXYY\n(ZYYXXZZYXYn)',
+            group: 'ZYYXXZZYXYn'
+        }, {
+            id: 'YXX XXnXYY XZZYYYY',
+            label: 'YXX XXnXYY XZZYYYY\n(ZYYYZnY / YXZYXYYY)',
+            group: 'ZYYYZnY_YXZYXYYY'
+        }, {
+            id: 'YXZXYXYXYYXZXZ',
+            label: 'YXZXYXYXYYXZXZ\n(ZYYYZnY / YXZYXYYY)',
+            group: 'ZYYYZnY_YXZYXYYY'
+        }],
+        [{
+            id: 'ZYZXYXY',
+            label: 'ZYZXYXY\n(ZYYXXZZYXYn)',
+            group: 'ZYYXXZZYXYn'
+        }, {
+            id: 'ZZXXYY',
+            label: 'ZZXXYY\n(ZZ nXYYYYX YXXZYXZ)',
+            group: 'ZZ_nXYYYYX_YXXZYXZ'
+        }],
+        [{
+            id: 'XXYnYXZ | XnYYZnYYZYXnXYZYY',
+            label: 'XnYYZnYYZYXnXYZYY\n(ZYYXXZZYXYn)',
+            group: 'ZYYXXZZYXYn'
+        }, {
+            id: 'XXYnYXZ',
+            label: 'XXYnYXZ\n(ZYYYZnY / YXZYXYYY)',
+            group: 'ZYYYZnY_YXZYXYYY'
+        }, {
+            id: 'YZZYYXZ',
+            label: 'YZZYYXZ\n(ZYYYZnY / YXZYXYYY)',
+            group: 'ZYYYZnY_YXZYXYYY'
+        }],
+        [{
+            id: 'ZXYZYZXYZXX | ZYYY | XYYYXYYY.YX',
+            label: 'XYYYXYYY.YX\n(ZYYXXZZYXYn)',
+            group: 'ZYYXXZZYXYn'
+        }, {
+            id: 'ZXYZYZXYZXX',
+            label: 'ZXYZYZXYZXX\n(ZYYYZnY / YXZYXYYY)',
+            group: 'ZYYYZnY_YXZYXYYY'
+        }, {
+            id: 'XXYnYXZ',
+            label: 'XXYnYXZ\n(ZYYYZnY / YXZYXYYY)',
+            group: 'ZYYYZnY_YXZYXYYY'
+        }],
+        [{
+            id: 'YZXXZYXXYYXZXZ',
+            label: 'YZXXZYXXYYXZXZ\n(ZYYYZnY / YXZYXYYY)',
+            group: 'ZYYYZnY_YXZYXYYY'
+        }, {
+            id: 'ZYYYXZZ',
+            label: 'ZYYYXZZ\n(ZYYYZnY / YXZYXYYY)',
+            group: 'ZYYYZnY_YXZYXYYY'
+        }, {
+            id: 'YZXXZYXXYYXZXZ | ZYYY | YXXXZYXYnXXnXY',
+            label: 'YXXXZYXYnXXnXY\n(ZYYXXZZYXYn)',
+            group: 'ZYYXXZZYXYn'
+        }],
+        [{
+            id: 'YZXXZYXXYYXZXZ',
+            label: 'YZXXZYXXYYXZXZ\n(ZYYYZnY / YXZYXYYY)',
+            group: 'ZYYYZnY_YXZYXYYY'
+        }, {
+            id: 'ZXXnXY',
+            label: 'ZXXnXY\n(ZYYYZnY / YXZYXYYY)',
+            group: 'ZYYYZnY_YXZYXYYY'
+        }, {
+            id: 'YZXXZYXXYYXZXZ | ZYYY | YXXXZYXYnXXnXY',
+            label: 'YXXXZYXYnXXnXY\n(ZYYXXZZYXYn)',
+            group: 'ZYYXXZZYXYn'
+        }],
+        [{
+            id: 'YXXXYYXZXZ',
+            label: 'YXXXYYXZXZ\n(ZZ nXYYYYX YXXZYXZ)',
+            group: 'ZZ_nXYYYYX_YXXZYXZ'
+        }, {
+            id: 'ZYYnXYYY',
+            label: 'ZYYnXYYY\n(ZZ nXYYYYX YXXZYXZ)',
+            group: 'ZZ_nXYYYYX_YXXZYXZ'
+        }, {
+            id: 'YYYnZXYYYY',
+            label: 'YYYnZXYYYY\n(ZYYYZnY / YXZYXYYY)',
+            group: 'ZYYYZnY_YXZYXYYY'
+        }, {
+            id: 'XXXYYZ',
+            label: 'XXXYYZ\n(ZZ nXYYYYX YXXZYXZ)',
+            group: 'ZZ_nXYYYYX_YXXZYXZ'
+        }, {
+            id: 'YYXYYnXZ | YYXYYnXZ XnYYZXXXY',
+            label: 'YYXYYnXZ XnYYZXXXY\n(XnYYZXX YXZYXYYY)',
+            group: 'XnYYZXX_YXZYXYYY'
+        }, {
+            id: 'YYXYYnXZ',
+            label: 'YYXYYnXZ\n(ZYYYZnY / YXZYXYYY)',
+            group: 'ZYYYZnY_YXZYXYYY'
+        }, {
+            id: 'XXnXXY',
+            label: 'XXnXXY\n(ZYYXXZZYXYn)',
+            group: 'ZYYXXZZYXYn'
+        }, {
+            id: 'XXnXYYY | ZYYY | YnZY.ZY',
+            label: 'YnZY.ZY\n(ZYYXXZZYXYn)',
+            group: 'ZYYXXZZYXYn'
+        }, {
+            id: 'XXnXYYY',
+            label: 'XXnXYYY\n(ZYYYZnY / YXZYXYYY)',
+            group: 'ZYYYZnY_YXZYXYYY'
+        }, {
+            id: 'YYYnZXYYYY | ZYYY | ZYYnXYZZ XYXX YYYXZ',
+            label: 'ZYYnXYZZ XYXX YYYXZ\n(ZYYXXZZYXYn)',
+            group: 'ZYYXXZZYXYn'
+        }],
+        [{
+            id: 'YYXYYnXZ | YYXYYnXZ XnYYZXXXY',
+            label: 'YYXYYnXZ XnYYZXXXY\n(XnYYZXX YXZYXYYY)',
+            group: 'XnYYZXX_YXZYXYYY'
+        }, {
+            id: 'YYXYYnXZ',
+            label: 'YYXYYnXZ\n(ZYYYZnY / YXZYXYYY)',
+            group: 'ZYYYZnY_YXZYXYYY'
+        }, {
+            id: 'XXnXXY',
+            label: 'XXnXXY\n(ZYYXXZZYXYn)',
+            group: 'ZYYXXZZYXYn'
+        }, {
+            id: 'XXnXYYY | ZYYY | YnZY.ZY',
+            label: 'YnZY.ZY\n(ZYYXXZZYXYn)',
+            group: 'ZYYXXZZYXYn'
+        }, {
+            id: 'XXnXYYY',
+            label: 'XXnXYYY\n(ZYYYZnY / YXZYXYYY)',
+            group: 'ZYYYZnY_YXZYXYYY'
+        }, {
+            id: 'YYYnZXYYYY | ZYYY | ZYYnXYZZ XYXX YYYXZ',
+            label: 'ZYYnXYZZ XYXX YYYXZ\n(ZYYXXZZYXYn)',
+            group: 'ZYYXXZZYXYn'
+        }, {
+            id: 'YYYnZXYYYY',
+            label: 'YYYnZXYYYY\n(ZYYYZnY / YXZYXYYY)',
+            group: 'ZYYYZnY_YXZYXYYY'
+        }],
+        [{
+            id: 'YYYnZXYYYY',
+            label: 'YYYnZXYYYY\n(ZYYYZnY / YXZYXYYY)',
+            group: 'ZYYYZnY_YXZYXYYY'
+        }, {
+            id: 'ZZZZYX',
+            label: 'ZZZZYX\n(ZYYYZnY / YXZYXYYY)',
+            group: 'ZYYYZnY_YXZYXYYY'
+        }, {
+            id: 'YYXYYnXZ | YYXYYnXZ XnYYZXXXY',
+            label: 'YYXYYnXZ XnYYZXXXY\n(XnYYZXX YXZYXYYY)',
+            group: 'XnYYZXX_YXZYXYYY'
+        }, {
+            id: 'YYXYYnXZ',
+            label: 'YYXYYnXZ\n(ZYYYZnY / YXZYXYYY)',
+            group: 'ZYYYZnY_YXZYXYYY'
+        }, {
+            id: 'XXnXXY',
+            label: 'XXnXXY\n(ZYYXXZZYXYn)',
+            group: 'ZYYXXZZYXYn'
+        }, {
+            id: 'XXnXYYY | ZYYY | YnZY.ZY',
+            label: 'YnZY.ZY\n(ZYYXXZZYXYn)',
+            group: 'ZYYXXZZYXYn'
+        }, {
+            id: 'XXnXYYY',
+            label: 'XXnXYYY\n(ZYYYZnY / YXZYXYYY)',
+            group: 'ZYYYZnY_YXZYXYYY'
+        }, {
+            id: 'YYYnZXYYYY | ZYYY | ZYYnXYZZ XYXX YYYXZ',
+            label: 'ZYYnXYZZ XYXX YYYXZ\n(ZYYXXZZYXYn)',
+            group: 'ZYYXXZZYXYn'
+        }],
+        [{
+            id: 'YYYnZXYYYY',
+            label: 'YYYnZXYYYY\n(ZYYYZnY / YXZYXYYY)',
+            group: 'ZYYYZnY_YXZYXYYY'
+        }, {
+            id: 'ZYYnXYYY',
+            label: 'ZYYnXYYY\n(ZZ nXYYYYX YXXZYXZ)',
+            group: 'ZZ_nXYYYYX_YXXZYXZ'
+        }, {
+            id: 'XXXYYZ',
+            label: 'XXXYYZ\n(ZZ nXYYYYX YXXZYXZ)',
+            group: 'ZZ_nXYYYYX_YXXZYXZ'
+        }, {
+            id: 'YYXYYnXZ | YYXYYnXZ XnYYZXXXY',
+            label: 'YYXYYnXZ XnYYZXXXY\n(XnYYZXX YXZYXYYY)',
+            group: 'XnYYZXX_YXZYXYYY'
+        }, {
+            id: 'YYXYYnXZ',
+            label: 'YYXYYnXZ\n(ZYYYZnY / YXZYXYYY)',
+            group: 'ZYYYZnY_YXZYXYYY'
+        }, {
+            id: 'XXnXXY',
+            label: 'XXnXXY\n(ZYYXXZZYXYn)',
+            group: 'ZYYXXZZYXYn'
+        }, {
+            id: 'XXnXYYY | ZYYY | YnZY.ZY',
+            label: 'YnZY.ZY\n(ZYYXXZZYXYn)',
+            group: 'ZYYXXZZYXYn'
+        }, {
+            id: 'XXnXYYY',
+            label: 'XXnXYYY\n(ZYYYZnY / YXZYXYYY)',
+            group: 'ZYYYZnY_YXZYXYYY'
+        }, {
+            id: 'YXXXYYXZXZ',
+            label: 'YXXXYYXZXZ\n(ZZ nXYYYYX YXXZYXZ)',
+            group: 'ZZ_nXYYYYX_YXXZYXZ'
+        }, {
+            id: 'YYYnZXYYYY | ZYYY | ZYYnXYZZ XYXX YYYXZ',
+            label: 'ZYYnXYZZ XYXX YYYXZ\n(ZYYXXZZYXYn)',
+            group: 'ZYYXXZZYXYn'
+        }],
+        [{
+            id: 'YYXYYnXZ | YYXYYnXZ XnYYZXXXY',
+            label: 'YYXYYnXZ XnYYZXXXY\n(XnYYZXX YXZYXYYY)',
+            group: 'XnYYZXX_YXZYXYYY'
+        }, {
+            id: 'YYXYYnXZ',
+            label: 'YYXYYnXZ\n(ZYYYZnY / YXZYXYYY)',
+            group: 'ZYYYZnY_YXZYXYYY'
+        }, {
+            id: 'XXnXXY',
+            label: 'XXnXXY\n(ZYYXXZZYXYn)',
+            group: 'ZYYXXZZYXYn'
+        }, {
+            id: 'YXYXYXY | ZYYY | YXYY YZYYYYYZ',
+            label: 'YXYY YZYYYYYZ\n(ZYYXXZZYXYn)',
+            group: 'ZYYXXZZYXYn'
+        }, {
+            id: 'YXYXYXY',
+            label: 'YXYXYXY\n(ZYYYZnY / YXZYXYYY)',
+            group: 'ZYYYZnY_YXZYXYYY'
+        }, {
+            id: 'YYYYYY',
+            label: 'YYYYYY\n(XnYYZXX YXZYXYYY)',
+            group: 'XnYYZXX_YXZYXYYY'
+        }, {
+            id: 'YXXXYYXZXZ',
+            label: 'YXXXYYXZXZ\n(ZZ nXYYYYX YXXZYXZ)',
+            group: 'ZZ_nXYYYYX_YXXZYXZ'
+        }],
+        [{
+            id: 'ZYYZXXZZ',
+            label: 'ZYYZXXZZ\n(ZYYYZnY / YXZYXYYY)',
+            group: 'ZYYYZnY_YXZYXYYY'
+        }, {
+            id: 'ZYYnXYYY',
+            label: 'ZYYnXYYY\n(ZZ nXYYYYX YXXZYXZ)',
+            group: 'ZZ_nXYYYYX_YXXZYXZ'
+        }, {
+            id: 'XZZXZYYX++',
+            label: 'XZZXZYYX++\n(ZYYXXZZYXYn)',
+            group: 'ZYYXXZZYXYn'
+        }],
+        [{
+            id: 'XXYnYXZ | XnYYZnYYZYXnXYZYY',
+            label: 'XnYYZnYYZYXnXYZYY\n(ZYYXXZZYXYn)',
+            group: 'ZYYXXZZYXYn'
+        }, {
+            id: 'XXYnYXZ',
+            label: 'XXYnYXZ\n(ZYYYZnY / YXZYXYYY)',
+            group: 'ZYYYZnY_YXZYXYYY'
+        }, {
+            id: 'ZnXY (ZYYnXYZZ.ZYY)',
+            label: 'ZnXY (ZYYnXYZZ.ZYY)\n(XnYYZXX YXZYXYYY)',
+            group: 'XnYYZXX_YXZYXYYY'
+        }],
+        [{
+            id: 'XXYnYXZ | XnYYZnYYZYXnXYZYY',
+            label: 'XnYYZnYYZYXnXYZYY\n(ZYYXXZZYXYn)',
+            group: 'ZYYXXZZYXYn'
+        }, {
+            id: 'XXYnYXZ',
+            label: 'XXYnYXZ\n(ZYYYZnY / YXZYXYYY)',
+            group: 'ZYYYZnY_YXZYXYYY'
+        }, {
+            id: 'ZnXY (ZYYnXYZZ.ZYY)',
+            label: 'ZnXY (ZYYnXYZZ.ZYY)\n(XnYYZXX YXZYXYYY)',
+            group: 'XnYYZXX_YXZYXYYY'
+        }],
+        [{
+            id: 'XXYnYXZ | XnYYZnYYZYXnXYZYY',
+            label: 'XnYYZnYYZYXnXYZYY\n(ZYYXXZZYXYn)',
+            group: 'ZYYXXZZYXYn'
+        }, {
+            id: 'XXYnYXZ',
+            label: 'XXYnYXZ\n(ZYYYZnY / YXZYXYYY)',
+            group: 'ZYYYZnY_YXZYXYYY'
+        }, {
+            id: 'ZnXY (ZYYnXYZZ.ZYY)',
+            label: 'ZnXY (ZYYnXYZZ.ZYY)\n(XnYYZXX YXZYXYYY)',
+            group: 'XnYYZXX_YXZYXYYY'
+        }],
+        [{
+            id: 'YYXYYnXZ | ZYYY | YYXYYnXZ ZXYYYX YYYXZZY',
+            label: 'YYXYYnXZ ZXYYYX YYYXZZY\n(ZYYXXZZYXYn)',
+            group: 'ZYYXXZZYXYn'
+        }, {
+            id: 'YYXYYnXZ',
+            label: 'YYXYYnXZ\n(ZYYYZnY / YXZYXYYY)',
+            group: 'ZYYYZnY_YXZYXYYY'
+        }, {
+            id: 'YYnYXXYZ',
+            label: 'YYnYXXYZ\n(ZYYYZnY / YXZYXYYY)',
+            group: 'ZYYYZnY_YXZYXYYY'
+        }, {
+            id: 'YXXXYYXZXZ',
+            label: 'YXXXYYXZXZ\n(ZZ nXYYYYX YXXZYXZ)',
+            group: 'ZZ_nXYYYYX_YXXZYXZ'
+        }, {
+            id: 'YYXYYnXZ | YYXYYnXZ XnYYZXXXY',
+            label: 'YYXYYnXZ XnYYZXXXY\n(XnYYZXX YXZYXYYY)',
+            group: 'XnYYZXX_YXZYXYYY'
+        }],
+        [{
+            id: 'YXYXYXY',
+            label: 'YXYXYXY\n(ZYYYZnY / YXZYXYYY)',
+            group: 'ZYYYZnY_YXZYXYYY'
+        }, {
+            id: 'ZYYnXYYY',
+            label: 'ZYYnXYYY\n(ZZ nXYYYYX YXXZYXZ)',
+            group: 'ZZ_nXYYYYX_YXXZYXZ'
+        }, {
+            id: 'ZXYZYZXYZXX | ZYYY | XYYYXYYY.YX',
+            label: 'XYYYXYYY.YX\n(ZYYXXZZYXYn)',
+            group: 'ZYYXXZZYXYn'
+        }, {
+            id: 'ZXYZYZXYZXX',
+            label: 'ZXYZYZXYZXX\n(ZYYYZnY / YXZYXYYY)',
+            group: 'ZYYYZnY_YXZYXYYY'
+        }, {
+            id: 'YXZZXXYnZYXYn',
+            label: 'YXZZXXYnZYXYn\n(ZZ nXYYYYX YXXZYXZ)',
+            group: 'ZZ_nXYYYYX_YXXZYXZ'
+        }, {
+            id: 'YXXXYYXZXZ',
+            label: 'YXXXYYXZXZ\n(ZZ nXYYYYX YXXZYXZ)',
+            group: 'ZZ_nXYYYYX_YXXZYXZ'
+        }],
+        [{
+            id: 'ZZZYnYXZZYYY | XZYYXYYXYY',
+            label: 'XZYYXYYXYY\n(ZYYXXZZYXYn)',
+            group: 'ZYYXXZZYXYn'
+        }, {
+            id: 'ZZZYnYXZZYYY',
+            label: 'ZZZYnYXZZYYY\n(ZYYYZnY / YXZYXYYY)',
+            group: 'ZYYYZnY_YXZYXYYY'
+        }, {
+            id: 'YYYXZZnYYn',
+            label: 'YYYXZZnYYn\n(ZYYXXZZYXYn)',
+            group: 'ZYYXXZZYXYn'
+        }],
+        [{
+            id: 'ZZZYnYXZZYYY | XZYYXYYXYY',
+            label: 'XZYYXYYXYY\n(ZYYXXZZYXYn)',
+            group: 'ZYYXXZZYXYn'
+        }, {
+            id: 'ZZZYnYXZZYYY',
+            label: 'ZZZYnYXZZYYY\n(ZYYYZnY / YXZYXYYY)',
+            group: 'ZYYYZnY_YXZYXYYY'
+        }, {
+            id: 'YYYXZZnYYn',
+            label: 'YYYXZZnYYn\n(ZYYXXZZYXYn)',
+            group: 'ZYYXXZZYXYn'
+        }],
+        [{
+            id: 'XnXXXY',
+            label: 'XnXXXY\n(ZYYYZnY / YXZYXYYY)',
+            group: 'ZYYYZnY_YXZYXYYY'
+        }, {
+            id: 'ZYYnXYYY',
+            label: 'ZYYnXYYY\n(ZZ nXYYYYX YXXZYXZ)',
+            group: 'ZZ_nXYYYYX_YXXZYXZ'
+        }, {
+            id: 'YXYXYn | ZYZXXYXX',
+            label: 'ZYZXXYXX\n(ZYYYZnY / YXZYXYYY)',
+            group: 'ZYYYZnY_YXZYXYYY'
+        }, {
+            id: 'YXYXYn',
+            label: 'YXYXYn\n(ZYYYZnY / YXZYXYYY)',
+            group: 'ZYYYZnY_YXZYXYYY'
+        }, {
+            id: 'ZYnZYXY | YXZYZX YYYYXZY',
+            label: 'YXZYZX YYYYXZY\n(ZYYXXZZYXYn)',
+            group: 'ZYYXXZZYXYn'
+        }, {
+            id: 'ZYnZYXY',
+            label: 'ZYnZYXY\n(ZYYYZnY / YXZYXYYY)',
+            group: 'ZYYYZnY_YXZYXYYY'
+        }, {
+            id: 'XnXXXY | ZYYY | YXZYYXYYXZY',
+            label: 'YXZYYXYYXZY\n(ZYYXXZZYXYn)',
+            group: 'ZYYXXZZYXYn'
+        }, {
+            id: 'YYYXYXYXY YYY',
+            label: 'YYYXYXYXY YYY\n(ZYYXXZZYXYn)',
+            group: 'ZYYXXZZYXYn'
+        }],
+        [{
+            id: 'YYYZYY | ZXXYZXXZXY',
+            label: 'ZXXYZXXZXY\n(ZYYYZnY / YXZYXYYY)',
+            group: 'ZYYYZnY_YXZYXYYY'
+        }, {
+            id: 'YYYZYY',
+            label: 'YYYZYY\n(ZYYYZnY / YXZYXYYY)',
+            group: 'ZYYYZnY_YXZYXYYY'
+        }, {
+            id: 'ZZYYYXY | ZZY: XnYXYY ZZY',
+            label: 'XnYXYY ZZY',
+            group: 'YXYZ_ZZY'
+        }, {
+            id: 'ZZYYYXY | ZZY: YXYY ZZY',
+            label: 'YXYY ZZY',
+            group: 'YXYZ_ZZY'
+        }, {
+            id: 'ZXXXXY | YYZXYX',
+            label: 'YYZXYX\n(YXZYXYX)',
+            group: 'YXZYXYX'
+        }, {
+            id: 'ZXXXXY',
+            label: 'ZXXXXY\n(ZYYYZnY / YXZYXYYY)',
+            group: 'ZYYYZnY_YXZYXYYY'
+        }, {
+            id: 'YYYZYY | ZYYY | nXYYXY',
+            label: 'nXYYXY\n(ZYYXXZZYXYn)',
+            group: 'ZYYXXZZYXYn'
+        }, {
+            id: 'ZYYYYYXZXY',
+            label: 'ZYYYYYXZXY\n(ZYYYZnY / YXZYXYYY)',
+            group: 'ZYYYZnY_YXZYXYYY'
+        }, {
+            id: 'ZZZYXYn',
+            label: 'ZZZYXYn\n(ZYYYZnY / YXZYXYYY)',
+            group: 'ZYYYZnY_YXZYXYYY'
+        }, {
+            id: 'XXnXYYY',
+            label: 'XXnXYYY\n(ZYYYZnY / YXZYXYYY)',
+            group: 'ZYYYZnY_YXZYXYYY'
+        }, {
+            id: 'YYYZYY | ZYYY | XYXXXY YXZYZX ZZY',
+            label: 'XYXXXY YXZYZX ZZY\n(ZYYXXZZYXYn)',
+            group: 'ZYYXXZZYXYn'
+        }, {
+            id: 'YYYZYY | ZYYY | YYXnXnY YXZYZX ZZY',
+            label: 'YYXnXnY YXZYZX ZZY\n(ZYYXXZZYXYn)',
+            group: 'ZYYXXZZYXYn'
+        }],
+        [{
+            id: 'XnXXXY',
+            label: 'XnXXXY\n(ZYYYZnY / YXZYXYYY)',
+            group: 'ZYYYZnY_YXZYXYYY'
+        }, {
+            id: 'ZYYnXYYY',
+            label: 'ZYYnXYYY\n(ZZ nXYYYYX YXXZYXZ)',
+            group: 'ZZ_nXYYYYX_YXXZYXZ'
+        }, {
+            id: 'YXYXYn | ZYZXXYXX',
+            label: 'ZYZXXYXX\n(ZYYYZnY / YXZYXYYY)',
+            group: 'ZYYYZnY_YXZYXYYY'
+        }, {
+            id: 'YXYXYn',
+            label: 'YXYXYn\n(ZYYYZnY / YXZYXYYY)',
+            group: 'ZYYYZnY_YXZYXYYY'
+        }, {
+            id: 'ZYnZYXY | YXZYZX YYYYXZY',
+            label: 'YXZYZX YYYYXZY\n(ZYYXXZZYXYn)',
+            group: 'ZYYXXZZYXYn'
+        }, {
+            id: 'ZYnZYXY',
+            label: 'ZYnZYXY\n(ZYYYZnY / YXZYXYYY)',
+            group: 'ZYYYZnY_YXZYXYYY'
+        }, {
+            id: 'XnXXXY | ZYYY | YXZYYXYYXZY',
+            label: 'YXZYYXYYXZY\n(ZYYXXZZYXYn)',
+            group: 'ZYYXXZZYXYn'
+        }, {
+            id: 'YYYXYXYXY YYY',
+            label: 'YYYXYXYXY YYY\n(ZYYXXZZYXYn)',
+            group: 'ZYYXXZZYXYn'
+        }, {
+            id: 'YXXXYYXZXZ',
+            label: 'YXXXYYXZXZ\n(ZZ nXYYYYX YXXZYXZ)',
+            group: 'ZZ_nXYYYYX_YXXZYXZ'
+        }],
+        [{
+            id: 'YXYZ YXZXZ',
+            label: 'YXYZ YXZXZ\n(ZXYXYXYn)',
+            group: 'ZXYXYXYn'
+        }, {
+            id: 'ZZXnYYXXZXX | YXYZ ZX',
+            label: 'YXYZ ZX\n(ZYYYZnY / YXZYXYYY)',
+            group: 'ZYYYZnY_YXZYXYYY'
+        }, {
+            id: 'ZZXnYYXXZXX',
+            label: 'ZZXnYYXXZXX\n(ZYYYZnY / YXZYXYYY)',
+            group: 'ZYYYZnY_YXZYXYYY'
+        }, {
+            id: 'ZZXnYYXXZXX | YXYZ ZX | ZYYY | ZYYYYXYYZXXXYZYZ',
+            label: 'ZYYYYXYYZXXXYZYZ\n(ZYYXXZZYXYn)',
+            group: 'ZYYXXZZYXYn'
+        }, {
+            id: 'ZZYYYXY | ZZY: YXYY ZZY',
+            label: 'YXYY ZZY',
+            group: 'YXYZ_ZZY'
+        }, {
+            id: 'YXYZ ZXYXZY',
+            label: 'YXYZ ZXYXZY\n(ZXYXYXYn)',
+            group: 'ZXYXYXYn'
+        }, {
+            id: 'XnYYY | ZXYY',
+            label: 'ZXYY\n(ZYYYZnY / YXZYXYYY)',
+            group: 'ZYYYZnY_YXZYXYYY'
+        }, {
+            id: 'XnYYY',
+            label: 'XnYYY\n(ZYYYZnY / YXZYXYYY)',
+            group: 'ZYYYZnY_YXZYXYYY'
+        }, {
+            id: 'YXYYYY',
+            label: 'YXYYYY\n(ZYYYZnY / YXZYXYYY)',
+            group: 'ZYYYZnY_YXZYXYYY'
+        }, {
+            id: 'YXYZ',
+            label: 'YXYZ\n(ZYYYZnY / YXZYXYYY)',
+            group: 'ZYYYZnY_YXZYXYYY'
+        }]
+    ]
+};
+var edgesByGraph = {
+    'graphEdges': [
+        [{
+            from: 'YXYXYXY',
+            to: 'YXXXYYXZXZ',
+            label: 'XnXXZYY'
+        }],
+        [{
+            from: 'YXYXYXY',
+            to: 'YZYYYY',
+            label: 'XnXXZYY'
+        }, {
+            from: 'YZYYYY',
+            to: 'YXXXYYXZXZ',
+            label: 'XnXXZYY'
+        }],
+        [{
+            from: 'YZXXZYXXYYXZXZ',
+            to: 'ZYY XnYXYZZYXYX',
+            label: 'XnXXZYY'
+        }, {
+            from: 'ZYY XnYXYZZYXYX',
+            to: 'ZYYnXYYY',
+            label: 'XnXXZYY'
+        }, {
+            from: 'YZXXZYXXYYXZXZ | ZYYY | YXZXYXXXXZYYnXYZZ',
+            to: 'YZXXZYXXYYXZXZ',
+            label: 'XnXXZYY'
+        }, {
+            from: 'YZXXZYXXYYXZXZ',
+            to: 'YZXXZYXXYYXZXZ | ZYYY | YXZXYXXXXZYYnXYZZ',
+            label: 'YYnY'
+        }],
+        [{
+            from: 'ZZYXZXZ',
+            to: 'ZYYnXYYY',
+            label: 'XnXXZYY'
+        }],
+        [{
+            from: 'ZZYXZXZ',
+            to: 'ZYYnXYYY',
+            label: 'XnXXZYY'
+        }, {
+            from: 'ZYYnXYYY',
+            to: 'XYYYYYYX',
+            label: 'XnXXZYY'
+        }],
+        [{
+            from: 'ZZYXZXZ',
+            to: 'ZYYnXYYY',
+            label: 'XnXXZYY'
+        }, {
+            from: 'ZYYnXYYY',
+            to: 'ZYXZY',
+            label: 'XnXXZYY'
+        }],
+        [],
+        [],
+        [{
+            from: 'ZYYYYX',
+            to: 'ZZYXYYYYYXZY',
+            label: 'XnXXZYY'
+        }, {
+            from: 'ZZYXYYYYYXZY',
+            to: 'ZZYXXnXYXZXZ',
+            label: 'XnXXZYY'
+        }, {
+            from: 'ZZYXYYYYYXZY',
+            to: 'YXXXYYXZXZ',
+            label: 'XnXXZYY'
+        }],
+        [],
+        [],
+        [{
+            from: 'YXYYYYXZnXXZZY',
+            to: 'ZZYXZX',
+            label: 'XnXXZYY'
+        }, {
+            from: 'YXYYYYXZnXXZZY',
+            to: 'YYYXYXXYX',
+            label: 'XnXXZYY'
+        }, {
+            from: 'YXYYYYXZnXXZZY',
+            to: 'YXZZXY',
+            label: 'XnXXZYY'
+        }],
+        [{
+            from: 'ZYYZXXZZ | ZYYY | ZYYZXXZZ ZYY',
+            to: 'ZYYZXXZZ',
+            label: 'XnXXZYY'
+        }, {
+            from: 'ZYYZXXZZ',
+            to: 'ZYYnXYYY',
+            label: 'XnXXZYY'
+        }, {
+            from: 'ZYYZXXZZ',
+            to: 'ZYYZXXZZ | ZYYY | ZYYZXXZZ ZYY',
+            label: 'YYnY'
+        }],
+        [],
+        [{
+            from: 'YZXXZYXXYYXZXZ',
+            to: 'ZZYXYYXYX.ZYY',
+            label: 'XnXXZYY'
+        }],
+        [{
+            from: 'XYYnYYYYZX',
+            to: 'XYYnYYYYZX | ZXZXYXY',
+            label: 'YYnY'
+        }, {
+            from: 'XXnXYYY',
+            to: 'XYYnYYYYZX | ZXZXYXY',
+            label: 'XnXXZYY'
+        }],
+        [{
+            from: 'XXYnYXZ',
+            to: 'XXYnYXZ | ZYYY | XXZnYYZYXnXY',
+            label: 'YYnY'
+        }, {
+            from: 'XXYnYXZ | ZYYY | XXZnYYZYXnXY',
+            to: 'XXYnYXZ',
+            label: 'XnXXZYY'
+        }, {
+            from: 'XXYnYXZ',
+            to: 'ZYXYXY',
+            label: 'XnXXZYY'
+        }, {
+            from: 'XXYnYXZ',
+            to: 'YZXYXZXXZX',
+            label: 'XnXXZYY'
+        }],
+        [{
+            from: 'XXYnYXZ',
+            to: 'XXYnYXZ | ZYYY | XXZnYYZYXnXY',
+            label: 'YYnY'
+        }, {
+            from: 'XXYnYXZ | ZYYY | XXZnYYZYXnXY',
+            to: 'XXYnYXZ',
+            label: 'XnXXZYY'
+        }, {
+            from: 'XXYnYXZ',
+            to: 'ZYYnXYYY',
+            label: 'XnXXZYY'
+        }],
+        [{
+            from: 'YZYXYZYXZXZXY',
+            to: 'ZYY XnYXYZZYXYX',
+            label: 'XnXXZYY'
+        }, {
+            from: 'ZYY XnYXYZZYXYX',
+            to: 'ZYYnXYYY',
+            label: 'XnXXZYY'
+        }, {
+            from: 'YZYXYZYXZXZXY',
+            to: 'YYXYXYYXnY',
+            label: 'XnXXZYY'
+        }],
+        [{
+            from: 'YZYXYZYXZXZXY',
+            to: 'ZXXZXYZY',
+            label: 'XnXXZYY'
+        }],
+        [{
+            from: 'ZZYXZX',
+            to: 'ZZYXZX | ZYYY | XXYYZYXn',
+            label: 'YYnY'
+        }, {
+            from: 'ZZYXZX | ZYYY | XXYYZYXn',
+            to: 'ZZYXZX',
+            label: 'XnXXZYY'
+        }, {
+            from: 'ZZYXZX',
+            to: 'ZYYnXYYY',
+            label: 'XnXXZYY'
+        }],
+        [{
+            from: 'XYXnXnY',
+            to: 'YYZYZYXZ',
+            label: 'XnXXZYY'
+        }, {
+            from: 'XYXnXnY',
+            to: 'YXXXYYXZXZ',
+            label: 'XnXXZYY'
+        }, {
+            from: 'XYXnXnY',
+            to: 'YYZXZYn YYYXXZY',
+            label: 'XnXXZYY'
+        }],
+        [{
+            from: 'ZZYXZX | ZYYY | XXYYZYXn',
+            to: 'ZZYXZX',
+            label: 'XnXXZYY'
+        }, {
+            from: 'ZZYXZX',
+            to: 'ZZYXZXZ',
+            label: 'XnXXZYY'
+        }, {
+            from: 'ZZYXZX',
+            to: 'ZZYXZX | ZYYY | XXYYZYXn',
+            label: 'YYnY'
+        }],
+        [],
+        [{
+            from: 'YYXXXYYYXXYYX',
+            to: 'YXXnX YZnX XZZY',
+            label: 'XnXXZYY'
+        }, {
+            from: 'YXXnX YZnX XZZY',
+            to: 'ZYYnXYYY',
+            label: 'XnXXZYY'
+        }, {
+            from: 'ZYYnXYYY',
+            to: 'YXXXYYXZXZ',
+            label: 'XnXXZYY'
+        }],
+        [{
+            from: 'ZYY XnYXYZZYXYX | ZYYY | XZYZYZYXYYYXYYXY',
+            to: 'ZYY XnYXYZZYXYX',
+            label: 'XnXXZYY'
+        }, {
+            from: 'ZYY XnYXYZZYXYX',
+            to: 'ZYYnXYYY',
+            label: 'XnXXZYY'
+        }, {
+            from: 'ZYY XnYXYZZYXYX',
+            to: 'ZYY XnYXYZZYXYX | ZYYY | XZYZYZYXYYYXYYXY',
+            label: 'YYnY'
+        }],
+        [{
+            from: 'YYnXYXYX',
+            to: 'ZYY XnYXYZZYXYX',
+            label: 'XnXXZYY'
+        }, {
+            from: 'ZYY XnYXYZZYXYX',
+            to: 'ZYYnXYYY',
+            label: 'XnXXZYY'
+        }, {
+            from: 'YXYXYZXY',
+            to: 'YYnXYXYX',
+            label: 'XnXXZYY'
+        }, {
+            from: 'YXYXYZXY | ZYYY | ZYYYYnYZYZXXY',
+            to: 'YXYXYZXY',
+            label: 'XnXXZYY'
+        }, {
+            from: 'ZYYnXYYY',
+            to: 'YXXXYYXZXZ',
+            label: 'XnXXZYY'
+        }, {
+            from: 'YXYXYZXY',
+            to: 'YXYXYZXY | ZYYY | ZYYYYnYZYZXXY',
+            label: 'YYnY'
+        }],
+        [{
+            from: 'YXYXYZXY | ZYYY | ZYYYYnYZYZXXY',
+            to: 'YXYXYZXY',
+            label: 'XnXXZYY'
+        }, {
+            from: 'YXYXYZXY',
+            to: 'YYnXYXYX',
+            label: 'XnXXZYY'
+        }, {
+            from: 'YXYXYZXY',
+            to: 'YXYXYZXY | ZYYY | ZYYYYnYZYZXXY',
+            label: 'YYnY'
+        }],
+        [{
+            from: 'YZXXZYXXYYXZXZ | ZYYY | YXXXZYXYnXXnXY',
+            to: 'YZXXZYXXYYXZXZ',
+            label: 'YXYYYY'
+        }, {
+            from: 'YZXXZYXXYYXZXZ',
+            to: 'ZYY XnYXYZZYXYX',
+            label: 'XnXXZYY'
+        }, {
+            from: 'YZXXZYXXYYXZXZ',
+            to: 'YZXXZYXXYYXZXZ | ZYYY | YXXXZYXYnXXnXY',
+            label: 'YYnY'
+        }],
+        [{
+            from: 'YYZYZ',
+            to: 'YYZYZ | ZYYY | ZYYnXYZZYXYYY',
+            label: 'YYnY'
+        }],
+        [{
+            from: 'YYZYZ',
+            to: 'YYZYZ | ZYYY | ZYYnXYZZYXYYY',
+            label: 'YYnY'
+        }],
+        [{
+            from: 'YZnXYXYYYY | ZYYY | YYZXX',
+            to: 'YZnXYXYYYY',
+            label: 'XnXXZYY'
+        }, {
+            from: 'YZnXYXYYYY',
+            to: 'YYXZXZYZ.nXY',
+            label: 'XnXXZYY'
+        }, {
+            from: 'YZnXYXYYYY',
+            to: 'YZnXYXYYYY | ZYYY | YYZXX',
+            label: 'YYnY'
+        }],
+        [{
+            from: 'ZXYZYZXYZXX',
+            to: 'ZXYZYZXYZXX | ZYYY | YYXZYXZY',
+            label: 'YYnY'
+        }, {
+            from: 'ZXYZYZXYZXX | ZYYY | YYXZYXZY',
+            to: 'ZZYXZXZ',
+            label: 'XnXXZYY'
+        }],
+        [{
+            from: 'ZXYZYZXYZXX | ZYYY | YYXZYXZY',
+            to: 'ZZYXZXZ',
+            label: 'XnXXZYY'
+        }, {
+            from: 'ZZYXZXZ',
+            to: 'ZZZY.YY',
+            label: 'XnXXZYY'
+        }, {
+            from: 'ZXYZYZXYZXX',
+            to: 'ZXYZYZXYZXX | ZYYY | YYXZYXZY',
+            label: 'YYnY'
+        }, {
+            from: 'ZZYXZXZ',
+            to: 'XXYXYZXX',
+            label: 'XnXXZYY'
+        }],
+        [{
+            from: 'YZXXZYXXYYXZXZ',
+            to: 'ZYY XnYXYZZYXYX',
+            label: 'XnXXZYY'
+        }, {
+            from: 'ZYY XnYXYZZYXYX',
+            to: 'ZYYnXYYY',
+            label: 'XnXXZYY'
+        }, {
+            from: 'YXnYZZYYnXYYYYXY',
+            to: 'YZXXZYXXYYXZXZ',
+            label: 'XnXXZYY'
+        }, {
+            from: 'YXnYZZYYnXYYYYXY',
+            to: 'YXnYZZYYnXYYYYXY | ZYYY | YnXYXXnZYYZYYY',
+            label: 'YYnY'
+        }, {
+            from: 'YXnYZZYYnXYYYYXY | ZYYY | YnXYXXnZYYZYYY',
+            to: 'YXnYZZYYnXYYYYXY',
+            label: 'XnXXZYY'
+        }],
+        [],
+        [{
+            from: 'ZZYXZX',
+            to: 'ZZYXZX | ZYYY | ZYYYYnZYZYXnX',
+            label: 'YYnY'
+        }, {
+            from: 'ZZYXZX | ZYYY | ZYYYYnZYZYXnX',
+            to: 'ZZYXZX',
+            label: 'XnXXZYY'
+        }],
+        [{
+            from: 'YXXYXYYYXX',
+            to: 'YXXYXYYYXX | YXXYXYYYXX YYYXZZY',
+            label: 'YYnY'
+        }, {
+            from: 'YXZYXZX | XnYYZXXXYXY',
+            to: 'YXXYXYYYXX | YXXYXYYYXX YYYXZZY',
+            label: 'ZYnZXXnX'
+        }, {
+            from: 'YXXYXYYYXX | YXXYXYYYXX YYYXZZY',
+            to: 'ZYnZYXY',
+            label: 'XnXXZYY'
+        }, {
+            from: 'ZYnZYXY',
+            to: 'YYXZXXYnX',
+            label: 'XnXXZYY'
+        }, {
+            from: 'YXZYXZX',
+            to: 'YXZYXZX | ZYYY | YZYXZY',
+            label: 'YYnY'
+        }, {
+            from: 'YXZYXZX',
+            to: 'YXZYXZX | XnYYZXXXYXY',
+            label: 'YYnY'
+        }],
+        [{
+            from: 'XYYYYYYYXXXXZ',
+            to: 'ZZnXYYYYX.nXY',
+            label: 'XnXXZYY'
+        }, {
+            from: 'ZZnXYYYYX.nXY',
+            to: 'ZYYnXYYY',
+            label: 'XnXXZYY'
+        }, {
+            from: 'ZYYnXYYY',
+            to: 'YXXXYYXZXZ',
+            label: 'XnXXZYY'
+        }],
+        [{
+            from: 'XZZXZYYX YXZYYYXY, YXYYYY ZnZ ZXZYYY Xn XZ',
+            to: 'ZXYZYZXYZXX',
+            label: 'XnXXZYY'
+        }, {
+            from: 'ZXYZYZXYZXX',
+            to: 'YXYXYXY',
+            label: 'XnXXZYY'
+        }, {
+            from: 'YXYXYXY',
+            to: 'YXXXYYXZXZ',
+            label: 'XnXXZYY'
+        }],
+        [{
+            from: 'YXXYXYYYXX',
+            to: 'YXXYXYYYXX | YXXYXYYYXX YYYXZZY',
+            label: 'YYnY'
+        }, {
+            from: 'YXZYXZX | XnYYZXXXYXY',
+            to: 'YXXYXYYYXX | YXXYXYYYXX YYYXZZY',
+            label: 'ZYnZXXnX'
+        }, {
+            from: 'YXXYXYYYXX | YXXYXYYYXX YYYXZZY',
+            to: 'ZYnZYXY',
+            label: 'XnXXZYY'
+        }, {
+            from: 'ZYnZYXY',
+            to: 'YZZYYXZ',
+            label: 'XnXXZYY'
+        }, {
+            from: 'YXZYXZX',
+            to: 'YXZYXZX | ZYYY | YZYXZY',
+            label: 'YYnY'
+        }, {
+            from: 'YXZYXZX',
+            to: 'YXZYXZX | XnYYZXXXYXY',
+            label: 'YYnY'
+        }],
+        [{
+            from: 'YYnXYXYX',
+            to: 'ZYY XnYXYZZYXYX',
+            label: 'XnXXZYY'
+        }, {
+            from: 'ZYY XnYXYZZYXYX',
+            to: 'ZYYnXYYY',
+            label: 'XnXXZYY'
+        }, {
+            from: 'ZXZZZXYY | XXnYZY ZYYYYXY ZYYYZnXYn',
+            to: 'YYnXYXYX',
+            label: 'XnXXZYY'
+        }, {
+            from: 'ZXZZZXYY',
+            to: 'ZXZZZXYY | XXnYZY ZYYYYXY ZYYYZnXYn',
+            label: 'YYnY'
+        }, {
+            from: 'ZYYnXYYY',
+            to: 'YXXXYYXZXZ',
+            label: 'XnXXZYY'
+        }],
+        [{
+            from: 'ZXZZZXYY',
+            to: 'ZXZZZXYY | XXnYZY ZYYYYXY ZYYYZnXYn',
+            label: 'YYnY'
+        }, {
+            from: 'ZXZZZXYY | XXnYZY ZYYYYXY ZYYYZnXYn',
+            to: 'YYnXYXYX',
+            label: 'XnXXZYY'
+        }],
+        [{
+            from: 'ZXXXnX XYYXnYXYn',
+            to: 'YYZYZ',
+            label: 'XnXXZYY'
+        }, {
+            from: 'YYZYZ',
+            to: 'ZYYnXYYY',
+            label: 'XnXXZYY'
+        }],
+        [{
+            from: 'YXX XXnXYY XZZYYYY',
+            to: 'YXX XXnXYY XZZYYYY | YYXnZXXnXYY',
+            label: 'YYnY'
+        }, {
+            from: 'YXX XXnXYY XZZYYYY | YYXnZXXnXYY',
+            to: 'YXZXYXYXYYXZXZ',
+            label: 'XnXXZYY'
+        }],
+        [{
+            from: 'ZYZXYXY',
+            to: 'ZZXXYY',
+            label: 'XnXXZYY'
+        }],
+        [{
+            from: 'XXYnYXZ',
+            to: 'XXYnYXZ | XnYYZnYYZYXnXYZYY',
+            label: 'YYnY'
+        }, {
+            from: 'XXYnYXZ | XnYYZnYYZYXnXYZYY',
+            to: 'XXYnYXZ',
+            label: 'XnXXZYY'
+        }, {
+            from: 'XXYnYXZ',
+            to: 'YZZYYXZ',
+            label: 'XnXXZYY'
+        }],
+        [{
+            from: 'ZXYZYZXYZXX',
+            to: 'ZXYZYZXYZXX | ZYYY | XYYYXYYY.YX',
+            label: 'YYnY'
+        }, {
+            from: 'ZXYZYZXYZXX | ZYYY | XYYYXYYY.YX',
+            to: 'XXYnYXZ',
+            label: 'XnXXZYY'
+        }],
+        [{
+            from: 'YZXXZYXXYYXZXZ | ZYYY | YXXXZYXYnXXnXY',
+            to: 'YZXXZYXXYYXZXZ',
+            label: 'XnXXZYY'
+        }, {
+            from: 'YZXXZYXXYYXZXZ',
+            to: 'ZYYYXZZ',
+            label: 'XnXXZYY'
+        }, {
+            from: 'YZXXZYXXYYXZXZ',
+            to: 'YZXXZYXXYYXZXZ | ZYYY | YXXXZYXYnXXnXY',
+            label: 'YYnY'
+        }],
+        [{
+            from: 'YZXXZYXXYYXZXZ | ZYYY | YXXXZYXYnXXnXY',
+            to: 'YZXXZYXXYYXZXZ',
+            label: 'XnXXZYY'
+        }, {
+            from: 'YZXXZYXXYYXZXZ',
+            to: 'ZXXnXY',
+            label: 'XnXXZYY'
+        }, {
+            from: 'YZXXZYXXYYXZXZ',
+            to: 'YZXXZYXXYYXZXZ | ZYYY | YXXXZYXYnXXnXY',
+            label: 'YYnY'
+        }],
+        [{
+            from: 'XXXYYZ',
+            to: 'YXXXYYXZXZ',
+            label: 'XnXXZYY'
+        }, {
+            from: 'YXXXYYXZXZ',
+            to: 'ZYYnXYYY',
+            label: 'XnXXZYY'
+        }, {
+            from: 'YYYnZXYYYY | ZYYY | ZYYnXYZZ XYXX YYYXZ',
+            to: 'YYYnZXYYYY',
+            label: 'XnXXZYY'
+        }, {
+            from: 'YYYnZXYYYY',
+            to: 'XXXYYZ',
+            label: 'XnXXZYY'
+        }, {
+            from: 'YYXYYnXZ',
+            to: 'YYXYYnXZ | YYXYYnXZ XnYYZXXXY',
+            label: 'YYnY'
+        }, {
+            from: 'YYXYYnXZ | YYXYYnXZ XnYYZXXXY',
+            to: 'XXnXXY',
+            label: 'ZYnZXXnX'
+        }, {
+            from: 'XXnXYYY',
+            to: 'XXnXYYY | ZYYY | YnZY.ZY',
+            label: 'YYnY'
+        }, {
+            from: 'YYXYYnXZ | YYXYYnXZ XnYYZXXXY',
+            to: 'XXnXYYY | ZYYY | YnZY.ZY',
+            label: 'ZYnZXXnX'
+        }, {
+            from: 'YYYnZXYYYY',
+            to: 'YYYnZXYYYY | ZYYY | ZYYnXYZZ XYXX YYYXZ',
+            label: 'YYnY'
+        }],
+        [{
+            from: 'YYXYYnXZ',
+            to: 'YYXYYnXZ | YYXYYnXZ XnYYZXXXY',
+            label: 'YYnY'
+        }, {
+            from: 'YYXYYnXZ | YYXYYnXZ XnYYZXXXY',
+            to: 'XXnXXY',
+            label: 'ZYnZXXnX'
+        }, {
+            from: 'XXnXYYY',
+            to: 'XXnXYYY | ZYYY | YnZY.ZY',
+            label: 'YYnY'
+        }, {
+            from: 'YYXYYnXZ | YYXYYnXZ XnYYZXXXY',
+            to: 'XXnXYYY | ZYYY | YnZY.ZY',
+            label: 'ZYnZXXnX'
+        }, {
+            from: 'YYYnZXYYYY',
+            to: 'YYYnZXYYYY | ZYYY | ZYYnXYZZ XYXX YYYXZ',
+            label: 'YYnY'
+        }, {
+            from: 'YYYnZXYYYY | ZYYY | ZYYnXYZZ XYXX YYYXZ',
+            to: 'YYYnZXYYYY',
+            label: 'XnXXZYY'
+        }],
+        [{
+            from: 'YYYnZXYYYY | ZYYY | ZYYnXYZZ XYXX YYYXZ',
+            to: 'YYYnZXYYYY',
+            label: 'XnXXZYY'
+        }, {
+            from: 'YYYnZXYYYY',
+            to: 'ZZZZYX',
+            label: 'XnXXZYY'
+        }, {
+            from: 'YYXYYnXZ',
+            to: 'YYXYYnXZ | YYXYYnXZ XnYYZXXXY',
+            label: 'YYnY'
+        }, {
+            from: 'YYXYYnXZ | YYXYYnXZ XnYYZXXXY',
+            to: 'XXnXXY',
+            label: 'ZYnZXXnX'
+        }, {
+            from: 'XXnXYYY',
+            to: 'XXnXYYY | ZYYY | YnZY.ZY',
+            label: 'YYnY'
+        }, {
+            from: 'YYXYYnXZ | YYXYYnXZ XnYYZXXXY',
+            to: 'XXnXYYY | ZYYY | YnZY.ZY',
+            label: 'ZYnZXXnX'
+        }, {
+            from: 'YYYnZXYYYY',
+            to: 'YYYnZXYYYY | ZYYY | ZYYnXYZZ XYXX YYYXZ',
+            label: 'YYnY'
+        }],
+        [{
+            from: 'YYYnZXYYYY | ZYYY | ZYYnXYZZ XYXX YYYXZ',
+            to: 'YYYnZXYYYY',
+            label: 'XnXXZYY'
+        }, {
+            from: 'YYYnZXYYYY',
+            to: 'ZYYnXYYY',
+            label: 'XnXXZYY'
+        }, {
+            from: 'YYYnZXYYYY',
+            to: 'XXXYYZ',
+            label: 'XnXXZYY'
+        }, {
+            from: 'YYXYYnXZ',
+            to: 'YYXYYnXZ | YYXYYnXZ XnYYZXXXY',
+            label: 'YYnY'
+        }, {
+            from: 'YYXYYnXZ | YYXYYnXZ XnYYZXXXY',
+            to: 'XXnXXY',
+            label: 'ZYnZXXnX'
+        }, {
+            from: 'XXnXYYY',
+            to: 'XXnXYYY | ZYYY | YnZY.ZY',
+            label: 'YYnY'
+        }, {
+            from: 'YYXYYnXZ | YYXYYnXZ XnYYZXXXY',
+            to: 'XXnXYYY | ZYYY | YnZY.ZY',
+            label: 'ZYnZXXnX'
+        }, {
+            from: 'XXXYYZ',
+            to: 'YXXXYYXZXZ',
+            label: 'XnXXZYY'
+        }, {
+            from: 'YYYnZXYYYY',
+            to: 'YYYnZXYYYY | ZYYY | ZYYnXYZZ XYXX YYYXZ',
+            label: 'YYnY'
+        }],
+        [{
+            from: 'YYXYYnXZ',
+            to: 'YYXYYnXZ | YYXYYnXZ XnYYZXXXY',
+            label: 'YYnY'
+        }, {
+            from: 'YYXYYnXZ | YYXYYnXZ XnYYZXXXY',
+            to: 'XXnXXY',
+            label: 'ZYnZXXnX'
+        }, {
+            from: 'YXYXYXY',
+            to: 'YXYXYXY | ZYYY | YXYY YZYYYYYZ',
+            label: 'YYnY'
+        }, {
+            from: 'YYYYYY',
+            to: 'YXYXYXY | ZYYY | YXYY YZYYYYYZ',
+            label: 'ZYnZXXnX'
+        }, {
+            from: 'YXYXYXY | ZYYY | YXYY YZYYYYYZ',
+            to: 'YXYXYXY',
+            label: 'XnXXZYY'
+        }, {
+            from: 'YXYXYXY',
+            to: 'YXXXYYXZXZ',
+            label: 'XnXXZYY'
+        }],
+        [{
+            from: 'XZZXZYYX++',
+            to: 'ZYYZXXZZ',
+            label: 'XnXXZYY'
+        }, {
+            from: 'ZYYZXXZZ',
+            to: 'ZYYnXYYY',
+            label: 'XnXXZYY'
+        }],
+        [{
+            from: 'XXYnYXZ',
+            to: 'XXYnYXZ | XnYYZnYYZYXnXYZYY',
+            label: 'YYnY'
+        }, {
+            from: 'ZnXY (ZYYnXYZZ.ZYY)',
+            to: 'XXYnYXZ | XnYYZnYYZYXnXYZYY',
+            label: 'ZYnZXXnX'
+        }, {
+            from: 'XXYnYXZ | XnYYZnYYZYXnXYZYY',
+            to: 'XXYnYXZ',
+            label: 'XnXXZYY'
+        }],
+        [{
+            from: 'XXYnYXZ',
+            to: 'XXYnYXZ | XnYYZnYYZYXnXYZYY',
+            label: 'YYnY'
+        }, {
+            from: 'ZnXY (ZYYnXYZZ.ZYY)',
+            to: 'XXYnYXZ | XnYYZnYYZYXnXYZYY',
+            label: 'ZYnZXXnX'
+        }, {
+            from: 'XXYnYXZ | XnYYZnYYZYXnXYZYY',
+            to: 'XXYnYXZ',
+            label: 'XnXXZYY'
+        }],
+        [{
+            from: 'XXYnYXZ',
+            to: 'XXYnYXZ | XnYYZnYYZYXnXYZYY',
+            label: 'YYnY'
+        }, {
+            from: 'ZnXY (ZYYnXYZZ.ZYY)',
+            to: 'XXYnYXZ | XnYYZnYYZYXnXYZYY',
+            label: 'ZYnZXXnX'
+        }, {
+            from: 'XXYnYXZ | XnYYZnYYZYXnXYZYY',
+            to: 'XXYnYXZ',
+            label: 'XnXXZYY'
+        }],
+        [{
+            from: 'YYXYYnXZ',
+            to: 'YYXYYnXZ | ZYYY | YYXYYnXZ ZXYYYX YYYXZZY',
+            label: 'YYnY'
+        }, {
+            from: 'YYXYYnXZ | YYXYYnXZ XnYYZXXXY',
+            to: 'YYXYYnXZ | ZYYY | YYXYYnXZ ZXYYYX YYYXZZY',
+            label: 'ZYnZXXnX'
+        }, {
+            from: 'YYXYYnXZ | ZYYY | YYXYYnXZ ZXYYYX YYYXZZY',
+            to: 'YYnYXXYZ',
+            label: 'XnXXZYY'
+        }, {
+            from: 'YYnYXXYZ',
+            to: 'YXXXYYXZXZ',
+            label: 'XnXXZYY'
+        }, {
+            from: 'YYXYYnXZ',
+            to: 'YYXYYnXZ | YYXYYnXZ XnYYZXXXY',
+            label: 'YYnY'
+        }],
+        [{
+            from: 'ZXYZYZXYZXX',
+            to: 'YXYXYXY',
+            label: 'XnXXZYY'
+        }, {
+            from: 'YXYXYXY',
+            to: 'ZYYnXYYY',
+            label: 'XnXXZYY'
+        }, {
+            from: 'ZXYZYZXYZXX',
+            to: 'ZXYZYZXYZXX | ZYYY | XYYYXYYY.YX',
+            label: 'YYnY'
+        }, {
+            from: 'ZXYZYZXYZXX | ZYYY | XYYYXYYY.YX',
+            to: 'ZXYZYZXYZXX',
+            label: 'XnXXZYY'
+        }, {
+            from: 'ZYYnXYYY',
+            to: 'YXZZXXYnZYXYn',
+            label: 'XnXXZYY'
+        }, {
+            from: 'YXZZXXYnZYXYn',
+            to: 'YXXXYYXZXZ',
+            label: 'XnXXZYY'
+        }],
+        [{
+            from: 'ZZZYnYXZZYYY',
+            to: 'ZZZYnYXZZYYY | XZYYXYYXYY',
+            label: 'YYnY'
+        }, {
+            from: 'ZZZYnYXZZYYY | XZYYXYYXYY',
+            to: 'YYYXZZnYYn',
+            label: 'XnXXZYY'
+        }],
+        [{
+            from: 'ZZZYnYXZZYYY',
+            to: 'ZZZYnYXZZYYY | XZYYXYYXYY',
+            label: 'YYnY'
+        }, {
+            from: 'ZZZYnYXZZYYY | XZYYXYYXYY',
+            to: 'YYYXZZnYYn',
+            label: 'XnXXZYY'
+        }],
+        [{
+            from: 'XnXXXY | ZYYY | YXZYYXYYXZY',
+            to: 'XnXXXY',
+            label: 'XnXXZYY'
+        }, {
+            from: 'XnXXXY',
+            to: 'ZYYnXYYY',
+            label: 'XnXXZYY'
+        }, {
+            from: 'YXYXYn',
+            to: 'YXYXYn | ZYZXXYXX',
+            label: 'YYnY'
+        }, {
+            from: 'ZYnZYXY',
+            to: 'ZYnZYXY | YXZYZX YYYYXZY',
+            label: 'YYnY'
+        }, {
+            from: 'YXYXYn | ZYZXXYXX',
+            to: 'ZYnZYXY | YXZYZX YYYYXZY',
+            label: 'ZYnZXXnX'
+        }, {
+            from: 'XnXXXY',
+            to: 'XnXXXY | ZYYY | YXZYYXYYXZY',
+            label: 'YYnY'
+        }, {
+            from: 'YXYXYn | ZYZXXYXX',
+            to: 'XnXXXY | ZYYY | YXZYYXYYXZY',
+            label: 'ZYnZXXnX'
+        }, {
+            from: 'YXYXYn | ZYZXXYXX',
+            to: 'YYYXYXYXY YYY',
+            label: 'ZYnZXXnX'
+        }],
+        [{
+            from: 'YYYZYY',
+            to: 'YYYZYY | ZXXYZXXZXY',
+            label: 'YYnY'
+        }, {
+            from: 'ZZZYXYn',
+            to: 'YYYZYY | ZXXYZXXZXY',
+            label: 'YYXY'
+        }, {
+            from: 'XXnXYYY',
+            to: 'YYYZYY | ZXXYZXXZXY',
+            label: 'YYXY'
+        }, {
+            from: 'YYYZYY | ZYYY | nXYYXY',
+            to: 'YYYZYY | ZXXYZXXZXY',
+            label: 'XnXXZYY'
+        }, {
+            from: 'YYYZYY',
+            to: 'ZXXXXY',
+            style: 'line',
+            label: 'YXXZYXZ'
+        }, {
+            from: 'YYYZYY | ZXXYZXXZXY',
+            to: 'ZZYYYXY | ZZY: XnYXYY ZZY',
+            label: 'XnXXZYY'
+        }, {
+            from: 'YYYZYY | ZXXYZXXZXY',
+            to: 'ZZYYYXY | ZZY: YXYY ZZY',
+            label: 'XnXXZYY'
+        }, {
+            from: 'ZXXXXY',
+            to: 'ZXXXXY | YYZXYX',
+            label: 'YYnY'
+        }, {
+            from: 'YYYZYY | ZXXYZXXZXY',
+            to: 'ZXXXXY | YYZXYX',
+            label: 'YYXY'
+        }, {
+            from: 'YYYZYY',
+            to: 'YYYZYY | ZYYY | nXYYXY',
+            label: 'YYnY'
+        }, {
+            from: 'YYYZYY | ZYYY | nXYYXY',
+            to: 'ZYYYYYXZXY',
+            label: 'YYXY'
+        }, {
+            from: 'YYYZYY',
+            to: 'YYYZYY | ZYYY | XYXXXY YXZYZX ZZY',
+            label: 'YYnY'
+        }, {
+            from: 'YYYZYY',
+            to: 'YYYZYY | ZYYY | YYXnXnY YXZYZX ZZY',
+            label: 'YYnY'
+        }],
+        [{
+            from: 'XnXXXY | ZYYY | YXZYYXYYXZY',
+            to: 'XnXXXY',
+            label: 'XnXXZYY'
+        }, {
+            from: 'XnXXXY',
+            to: 'ZYYnXYYY',
+            label: 'XnXXZYY'
+        }, {
+            from: 'YXYXYn',
+            to: 'YXYXYn | ZYZXXYXX',
+            label: 'YYnY'
+        }, {
+            from: 'ZYnZYXY',
+            to: 'ZYnZYXY | YXZYZX YYYYXZY',
+            label: 'YYnY'
+        }, {
+            from: 'YXYXYn | ZYZXXYXX',
+            to: 'ZYnZYXY | YXZYZX YYYYXZY',
+            label: 'ZYnZXXnX'
+        }, {
+            from: 'XnXXXY',
+            to: 'XnXXXY | ZYYY | YXZYYXYYXZY',
+            label: 'YYnY'
+        }, {
+            from: 'YXYXYn | ZYZXXYXX',
+            to: 'XnXXXY | ZYYY | YXZYYXYYXZY',
+            label: 'ZYnZXXnX'
+        }, {
+            from: 'YXYXYn | ZYZXXYXX',
+            to: 'YYYXYXYXY YYY',
+            label: 'ZYnZXXnX'
+        }, {
+            from: 'ZYYnXYYY',
+            to: 'YXXXYYXZXZ',
+            label: 'XnXXZYY'
+        }],
+        [{
+            from: 'ZZXnYYXXZXX',
+            to: 'YXYZ YXZXZ',
+            label: 'ZYYXXY'
+        }, {
+            from: 'YXYZ',
+            to: 'YXYZ YXZXZ',
+            label: 'YYnXZ'
+        }, {
+            from: 'ZZXnYYXXZXX',
+            to: 'ZZXnYYXXZXX | YXYZ ZX',
+            label: 'YYnY'
+        }, {
+            from: 'YXYZ YXZXZ',
+            to: 'ZZXnYYXXZXX | YXYZ ZX',
+            label: 'YXZYZnZXZ YY'
+        }, {
+            from: 'ZZXnYYXXZXX | YXYZ ZX',
+            to: 'ZZXnYYXXZXX | YXYZ ZX | ZYYY | ZYYYYXYYZXXXYZYZ',
+            label: 'YYnY'
+        }, {
+            from: 'ZZXnYYXXZXX | YXYZ ZX | ZYYY | ZYYYYXYYZXXXYZYZ',
+            to: 'ZZYYYXY | ZZY: YXYY ZZY',
+            label: 'XnXXZYY'
+        }, {
+            from: 'YXYZ',
+            to: 'YXYZ ZXYXZY',
+            label: 'YYnXZ'
+        }, {
+            from: 'XnYYY',
+            to: 'XnYYY | ZXYY',
+            label: 'YYnY'
+        }, {
+            from: 'YXYZ ZXYXZY',
+            to: 'XnYYY | ZXYY',
+            label: 'YXZYZnZXZ YY'
+        }, {
+            from: 'YXYYYY',
+            to: 'XnYYY | ZXYY',
+            label: 'YYnXZ'
+        }, {
+            from: 'XnYYY',
+            to: 'YXYYYY',
+            label: 'ZYYXXY'
+        }, {
+            from: 'YXYZ',
+            to: 'YXYYYY',
+            label: 'YXZYZnZXZ YY'
+        }]
+    ]
+};
+var nodes = [{
+    id: 'XXYnYXZ',
+    label: 'XXYnYXZ\n(ZYYYZnY / YXZYXYYY)',
+    group: 'ZYYYZnY_YXZYXYYY'
+}, {
+    id: 'XXYnYXZ | ZYYY | XXZnYYZYXnXY',
+    label: 'XXZnYYZYXnXY\n(ZYYXXZZYXYn)',
+    group: 'ZYYXXZZYXYn'
+}, {
+    id: 'XXYnYXZ | XnYYZnYYZYXnXYZYY',
+    label: 'XnYYZnYYZYXnXYZYY\n(ZYYXXZZYXYn)',
+    group: 'ZYYXXZZYXYn'
+}, {
+    id: 'ZXYZYZXYZXX | ZYYY | XYYYXYYY.YX',
+    label: 'XYYYXYYY.YX\n(ZYYXXZZYXYn)',
+    group: 'ZYYXXZZYXYn'
+}, {
+    id: 'ZXYZYZXYZXX',
+    label: 'ZXYZYZXYZXX\n(ZYYYZnY / YXZYXYYY)',
+    group: 'ZYYYZnY_YXZYXYYY'
+}, {
+    id: 'ZnXY (ZYYnXYZZ.ZYY)',
+    label: 'ZnXY (ZYYnXYZZ.ZYY)\n(XnYYZXX YXZYXYYY)',
+    group: 'XnYYZXX_YXZYXYYY'
+}, {
+    id: 'ZZYXZXZ',
+    label: 'ZZYXZXZ\n(ZYYYZnY / YXZYXYYY)',
+    group: 'ZYYYZnY_YXZYXYYY'
+}, {
+    id: 'ZZZY.YY',
+    label: 'ZZZY.YY\n(ZZ nXYYYYX YXXZYXZ)',
+    group: 'ZZ_nXYYYYX_YXXZYXZ'
+}, {
+    id: 'YYYnZXYYYY',
+    label: 'YYYnZXYYYY\n(ZYYYZnY / YXZYXYYY)',
+    group: 'ZYYYZnY_YXZYXYYY'
+}, {
+    id: 'ZZZZYX',
+    label: 'ZZZZYX\n(ZYYYZnY / YXZYXYYY)',
+    group: 'ZYYYZnY_YXZYXYYY'
+}, {
+    id: 'YYZXZXZXY',
+    label: 'YYZXZXZXY\n(ZYYYZnY / YXZYXYYY)',
+    group: 'ZYYYZnY_YXZYXYYY'
+}, {
+    id: 'ZZXYYX',
+    label: 'ZZXYYX\n(ZYYYZnY / YXZYXYYY)',
+    group: 'ZYYYZnY_YXZYXYYY'
+}, {
+    id: 'ZYZXYXY',
+    label: 'ZYZXYXY\n(ZYYXXZZYXYn)',
+    group: 'ZYYXXZZYXYn'
+}, {
+    id: 'ZZXXYY',
+    label: 'ZZXXYY\n(ZZ nXYYYYX YXXZYXZ)',
+    group: 'ZZ_nXYYYYX_YXXZYXZ'
+}, {
+    id: 'YXYZ YXZXZ',
+    label: 'YXYZ YXZXZ\n(ZXYXYXYn)',
+    group: 'ZXYXYXYn'
+}, {
+    id: 'ZZXnYYXXZXX | YXYZ ZX',
+    label: 'YXYZ ZX\n(ZYYYZnY / YXZYXYYY)',
+    group: 'ZYYYZnY_YXZYXYYY'
+}, {
+    id: 'ZZXnYYXXZXX',
+    label: 'ZZXnYYXXZXX\n(ZYYYZnY / YXZYXYYY)',
+    group: 'ZYYYZnY_YXZYXYYY'
+}, {
+    id: 'ZZYXZX',
+    label: 'ZZYXZX\n(ZYYYZnY / YXZYXYYY)',
+    group: 'ZYYYZnY_YXZYXYYY'
+}, {
+    id: 'ZXYZYZXYZXX | ZYYY | YYXZYXZY',
+    label: 'YYXZYXZY\n(ZYYXXZZYXYn)',
+    group: 'ZYYXXZZYXYn'
+}, {
+    id: 'XYYYYYYYXXXXZ',
+    label: 'XYYYYYYYXXXXZ\n(ZYYXXZZYXYn)',
+    group: 'ZYYXXZZYXYn'
+}, {
+    id: 'ZZnXYYYYX.nXY',
+    label: 'ZZnXYYYYX.nXY\n(ZZ nXYYYYX YXXZYXZ)',
+    group: 'ZZ_nXYYYYX_YXXZYXZ'
+}, {
+    id: 'ZZYXZX | ZYYY | ZYYYYnZYZYXnX',
+    label: 'ZYYYYnZYZYXnX\n(ZYYXXZZYXYn)',
+    group: 'ZYYXXZZYXYn'
+}, {
+    id: 'ZZYXZX | ZYYY | XXYYZYXn',
+    label: 'XXYYZYXn\n(ZYYXXZZYXYn)',
+    group: 'ZYYXXZZYXYn'
+}, {
+    id: 'YXYYYYXZnXXZZY',
+    label: 'YXYYYYXZnXXZZY\n(ZYYYZnY / YXZYXYYY)',
+    group: 'ZYYYZnY_YXZYXYYY'
+}, {
+    id: 'ZZYXYYYYYXZY',
+    label: 'ZZYXYYYYYXZY\n(ZZ nXYYYYX YXXZYXZ)',
+    group: 'ZZ_nXYYYYX_YXXZYXZ'
+}, {
+    id: 'ZZYXXnXYXZXZ',
+    label: 'ZZYXXnXYXZXZ\n(YnZXY YXYXZYZX)',
+    group: 'YnXnYYn'
+}, {
+    id: 'YYYZYY | ZXXYZXXZXY',
+    label: 'ZXXYZXXZXY\n(ZYYYZnY / YXZYXYYY)',
+    group: 'ZYYYZnY_YXZYXYYY'
+}, {
+    id: 'YYYZYY',
+    label: 'YYYZYY\n(ZYYYZnY / YXZYXYYY)',
+    group: 'ZYYYZnY_YXZYXYYY'
+}, {
+    id: 'ZZYYYXY | ZZY: XnYXYY ZZY',
+    label: 'XnYXYY ZZY',
+    group: 'YXYZ_ZZY'
+}, {
+    id: 'ZZXnYYXXZXX | YXYZ ZX | ZYYY | ZYYYYXYYZXXXYZYZ',
+    label: 'ZYYYYXYYZXXXYZYZ\n(ZYYXXZZYXYn)',
+    group: 'ZYYXXZZYXYn'
+}, {
+    id: 'ZZYYYXY | ZZY: YXYY ZZY',
+    label: 'YXYY ZZY',
+    group: 'YXYZ_ZZY'
+}, {
+    id: 'YZXXZYXXYYXZXZ',
+    label: 'YZXXZYXXYYXZXZ\n(ZYYYZnY / YXZYXYYY)',
+    group: 'ZYYYZnY_YXZYXYYY'
+}, {
+    id: 'ZZYXYYXYX.ZYY',
+    label: 'ZZYXYYXYX.ZYY\n(ZYYYZnY / YXZYXYYY)',
+    group: 'ZYYYZnY_YXZYXYYY'
+}, {
+    id: 'ZYYYYX',
+    label: 'ZYYYYX\n(ZYYXXZZYXYn)',
+    group: 'ZYYXXZZYXYn'
+}, {
+    id: 'ZYYnXYYY',
+    label: 'ZYYnXYYY\n(ZZ nXYYYYX YXXZYXZ)',
+    group: 'ZZ_nXYYYYX_YXXZYXZ'
+}, {
+    id: 'ZYYZXXZZ',
+    label: 'ZYYZXXZZ\n(ZYYYZnY / YXZYXYYY)',
+    group: 'ZYYYZnY_YXZYXYYY'
+}, {
+    id: 'ZYY XnYXYZZYXYX',
+    label: 'ZYY XnYXYZZYXYX\n(ZZ nXYYYYX YXXZYXZ)',
+    group: 'ZZ_nXYYYYX_YXXZYXZ'
+}, {
+    id: 'XnXXXY',
+    label: 'XnXXXY\n(ZYYYZnY / YXZYXYYY)',
+    group: 'ZYYYZnY_YXZYXYYY'
+}, {
+    id: 'YYZYZ',
+    label: 'YYZYZ\n(ZYYYZnY / YXZYXYYY)',
+    group: 'ZYYYZnY_YXZYXYYY'
+}, {
+    id: 'YXYXYXY',
+    label: 'YXYXYXY\n(ZYYYZnY / YXZYXYYY)',
+    group: 'ZYYYZnY_YXZYXYYY'
+}, {
+    id: 'YXXXYYXZXZ',
+    label: 'YXXXYYXZXZ\n(ZZ nXYYYYX YXXZYXZ)',
+    group: 'ZZ_nXYYYYX_YXXZYXZ'
+}, {
+    id: 'YXXnX YZnX XZZY',
+    label: 'YXXnX YZnX XZZY\n(ZYYYZnY / YXZYXYYY)',
+    group: 'ZYYYZnY_YXZYXYYY'
+}, {
+    id: 'ZYXZY',
+    label: 'ZYXZY\n(ZZ nXYYYYX YXXZYXZ)',
+    group: 'ZZ_nXYYYYX_YXXZYXZ'
+}, {
+    id: 'XZZXZYYX YXZYYYXY, YXYYYY ZnZ ZXZYYY Xn XZ',
+    label: 'XZZXZYYX YXZYYYXY, YXYYYY ZnZ ZXZYYY Xn XZ\n(ZYYXXZZYXYn)',
+    group: 'ZYYXXZZYXYn'
+}, {
+    id: 'ZXXXXY | YYZXYX',
+    label: 'YYZXYX\n(YXZYXYX)',
+    group: 'YXZYXYX'
+}, {
+    id: 'ZXXXXY',
+    label: 'ZXXXXY\n(ZYYYZnY / YXZYXYYY)',
+    group: 'ZYYYZnY_YXZYXYYY'
+}, {
+    id: 'ZXXnXY',
+    label: 'ZXXnXY\n(ZYYYZnY / YXZYXYYY)',
+    group: 'ZYYYZnY_YXZYXYYY'
+}, {
+    id: 'ZYYZXXZZ | ZYYY | ZYYZXXZZ ZYY',
+    label: 'ZYYZXXZZ ZYY\n(ZYYXXZZYXYn)',
+    group: 'ZYYXXZZYXYn'
+}, {
+    id: 'XZZXZYYX++',
+    label: 'XZZXZYYX++\n(ZYYXXZZYXYn)',
+    group: 'ZYYXXZZYXYn'
+}, {
+    id: 'YZYXYZYXZXZXY',
+    label: 'YZYXYZYXZXZXY\n(ZYYXXZZYXYn)',
+    group: 'ZYYXXZZYXYn'
+}, {
+    id: 'ZXXZXYZY',
+    label: 'ZXXZXYZY\n(YnZXY YXYXZYZX)',
+    group: 'YnXnYYn'
+}, {
+    id: 'YXXYXYYYXX | YXXYXYYYXX YYYXZZY',
+    label: 'YXXYXYYYXX YYYXZZY\n(YYYXZZY)',
+    group: 'YYYXZZY'
+}, {
+    id: 'YXXYXYYYXX',
+    label: 'YXXYXYYYXX\n(ZYYYZnY / YXZYXYYY)',
+    group: 'ZYYYZnY_YXZYXYYY'
+}, {
+    id: 'ZYnZYXY',
+    label: 'ZYnZYXY\n(ZYYYZnY / YXZYXYYY)',
+    group: 'ZYYYZnY_YXZYXYYY'
+}, {
+    id: 'YXYXYn | ZYZXXYXX',
+    label: 'ZYZXXYXX\n(ZYYYZnY / YXZYXYYY)',
+    group: 'ZYYYZnY_YXZYXYYY'
+}, {
+    id: 'YXYXYn',
+    label: 'YXYXYn\n(ZYYYZnY / YXZYXYYY)',
+    group: 'ZYYYZnY_YXZYXYYY'
+}, {
+    id: 'ZYnZYXY | YXZYZX YYYYXZY',
+    label: 'YXZYZX YYYYXZY\n(ZYYXXZZYXYn)',
+    group: 'ZYYXXZZYXYn'
+}, {
+    id: 'ZYYYXZZ',
+    label: 'ZYYYXZZ\n(ZYYYZnY / YXZYXYYY)',
+    group: 'ZYYYZnY_YXZYXYYY'
+}, {
+    id: 'ZYY XnYXYZZYXYX | ZYYY | XZYZYZYXYYYXYYXY',
+    label: 'XZYZYZYXYYYXYYXY\n(ZYYXXZZYXYn)',
+    group: 'ZYYXXZZYXYn'
+}, {
+    id: 'YYnXYXYX',
+    label: 'YYnXYXYX\n(ZYYYZnY / YXZYXYYY)',
+    group: 'ZYYYZnY_YXZYXYYY'
+}, {
+    id: 'ZYXYXY',
+    label: 'ZYXYXY\n(ZZ nXYYYYX YXXZYXZ)',
+    group: 'ZZ_nXYYYYX_YXXZYXZ'
+}, {
+    id: 'YYYZYY | ZYYY | nXYYXY',
+    label: 'nXYYXY\n(ZYYXXZZYXYn)',
+    group: 'ZYYXXZZYXYn'
+}, {
+    id: 'ZYYYYYXZXY',
+    label: 'ZYYYYYXZXY\n(ZYYYZnY / YXZYXYYY)',
+    group: 'ZYYYZnY_YXZYXYYY'
+}, {
+    id: 'XXXYYZ',
+    label: 'XXXYYZ\n(ZZ nXYYYYX YXXZYXZ)',
+    group: 'ZZ_nXYYYYX_YXXZYXZ'
+}, {
+    id: 'XnXXXY | ZYYY | YXZYYXYYXZY',
+    label: 'YXZYYXYYXZY\n(ZYYXXZZYXYn)',
+    group: 'ZYYXXZZYXYn'
+}, {
+    id: 'YXYZ ZXYXZY',
+    label: 'YXYZ ZXYXZY\n(ZXYXYXYn)',
+    group: 'ZXYXYXYn'
+}, {
+    id: 'XnYYY | ZXYY',
+    label: 'ZXYY\n(ZYYYZnY / YXZYXYYY)',
+    group: 'ZYYYZnY_YXZYXYYY'
+}, {
+    id: 'XnYYY',
+    label: 'XnYYY\n(ZYYYZnY / YXZYXYYY)',
+    group: 'ZYYYZnY_YXZYXYYY'
+}, {
+    id: 'YXYYYY',
+    label: 'YXYYYY\n(ZYYYZnY / YXZYXYYY)',
+    group: 'ZYYYZnY_YXZYXYYY'
+}, {
+    id: 'XYYYYYYX',
+    label: 'XYYYYYYX\n(ZZ nXYYYYX YXXZYXZ)',
+    group: 'ZZ_nXYYYYX_YXXZYXZ'
+}, {
+    id: 'XXnXYYY',
+    label: 'XXnXYYY\n(ZYYYZnY / YXZYXYYY)',
+    group: 'ZYYYZnY_YXZYXYYY'
+}, {
+    id: 'XYYnYYYYZX | ZXZXYXY',
+    label: 'ZXZXYXY\n(ZYYXXZZYXYn)',
+    group: 'ZYYXXZZYXYn'
+}, {
+    id: 'XYYnYYYYZX',
+    label: 'XYYnYYYYZX\n(ZYYYZnY / YXZYXYYY)',
+    group: 'ZYYYZnY_YXZYXYYY'
+}, {
+    id: 'YYXYYnXZ | YYXYYnXZ XnYYZXXXY',
+    label: 'YYXYYnXZ XnYYZXXXY\n(XnYYZXX YXZYXYYY)',
+    group: 'XnYYZXX_YXZYXYYY'
+}, {
+    id: 'YYXYYnXZ',
+    label: 'YYXYYnXZ\n(ZYYYZnY / YXZYXYYY)',
+    group: 'ZYYYZnY_YXZYXYYY'
+}, {
+    id: 'XXnXXY',
+    label: 'XXnXXY\n(ZYYXXZZYXYn)',
+    group: 'ZYYXXZZYXYn'
+}, {
+    id: 'XXnXYYY | ZYYY | YnZY.ZY',
+    label: 'YnZY.ZY\n(ZYYXXZZYXYn)',
+    group: 'ZYYXXZZYXYn'
+}, {
+    id: 'XXYXYZXX',
+    label: 'XXYXYZXX\n(ZZ nXYYYYX YXXZYXZ)',
+    group: 'ZZ_nXYYYYX_YXXZYXZ'
+}, {
+    id: 'YZYYYY',
+    label: 'YZYYYY\n(ZZ nXYYYYX YXXZYXZ)',
+    group: 'ZZ_nXYYYYX_YXXZYXZ'
+}, {
+    id: 'YXnYZZYYnXYYYYXY | ZYYY | YnXYXXnZYYZYYY',
+    label: 'YnXYXXnZYYZYYY\n(ZYYXXZZYXYn)',
+    group: 'ZYYXXZZYXYn'
+}, {
+    id: 'YXnYZZYYnXYYYYXY',
+    label: 'YXnYZZYYnXYYYYXY\n(ZYYYZnY / YXZYXYYY)',
+    group: 'ZYYYZnY_YXZYXYYY'
+}, {
+    id: 'YXYZ',
+    label: 'YXYZ\n(ZYYYZnY / YXZYXYYY)',
+    group: 'ZYYYZnY_YXZYXYYY'
+}, {
+    id: 'ZXZZZXYY | XXnYZY ZYYYYXY ZYYYZnXYn',
+    label: 'XXnYZY ZYYYYXY ZYYYZnXYn\n(ZYYXXZZYXYn)',
+    group: 'ZYYXXZZYXYn'
+}, {
+    id: 'ZXZZZXYY',
+    label: 'ZXZZZXYY\n(ZYYYZnY / YXZYXYYY)',
+    group: 'ZYYYZnY_YXZYXYYY'
+}, {
+    id: 'YXYXYZXY',
+    label: 'YXYXYZXY\n(ZYYYZnY / YXZYXYYY)',
+    group: 'ZYYYZnY_YXZYXYYY'
+}, {
+    id: 'YYXYYnXZ | ZYYY | YYXYYnXZ ZXYYYX YYYXZZY',
+    label: 'YYXYYnXZ ZXYYYX YYYXZZY\n(ZYYXXZZYXYn)',
+    group: 'ZYYXXZZYXYn'
+}, {
+    id: 'YYnYXXYZ',
+    label: 'YYnYXXYZ\n(ZYYYZnY / YXZYXYYY)',
+    group: 'ZYYYZnY_YXZYXYYY'
+}, {
+    id: 'nXYY.nXY',
+    label: 'nXYY.nXY\n(ZYYYZnY / YXZYXYYY)',
+    group: 'ZYYYZnY_YXZYXYYY'
+}, {
+    id: 'YZXXZYXXYYXZXZ | ZYYY | YXXXZYXYnXXnXY',
+    label: 'YXXXZYXYnXXnXY\n(ZYYXXZZYXYn)',
+    group: 'ZYYXXZZYXYn'
+}, {
+    id: 'YZXXZYXXYYXZXZ | ZYYY | YXZXYXXXXZYYnXYZZ',
+    label: 'YXZXYXXXXZYYnXYZZ\n(ZYYXXZZYXYn)',
+    group: 'ZYYXXZZYXYn'
+}, {
+    id: 'YYYXYXYXY YYY',
+    label: 'YYYXYXYXY YYY\n(ZYYXXZZYXYn)',
+    group: 'ZYYXXZZYXYn'
+}, {
+    id: 'ZXXXnX XYYXnYXYn',
+    label: 'ZXXXnX XYYXnYXYn\n(ZYYXXZZYXYn)',
+    group: 'ZYYXXZZYXYn'
+}, {
+    id: 'YYZYZ | ZYYY | ZYYnXYZZYXYYY',
+    label: 'ZYYnXYZZYXYYY\n(ZYYXXZZYXYn)',
+    group: 'ZYYXXZZYXYn'
+}, {
+    id: 'YZnXYXYYYY',
+    label: 'YZnXYXYYYY\n(ZYYYZnY / YXZYXYYY)',
+    group: 'ZYYYZnY_YXZYXYYY'
+}, {
+    id: 'YYXZXZYZ.nXY',
+    label: 'YYXZXZYZ.nXY\n(ZZ nXYYYYX YXXZYXZ)',
+    group: 'ZZ_nXYYYYX_YXXZYXZ'
+}, {
+    id: 'YYXZXXYnX',
+    label: 'YYXZXXYnX\n(ZYYXXZZYXYn)',
+    group: 'ZYYXXZZYXYn'
+}, {
+    id: 'YYXZXYXXY',
+    label: 'YYXZXYXXY\n(ZYYXXZZYXYn)',
+    group: 'ZYYXXZZYXYn'
+}, {
+    id: 'XYXnXnY',
+    label: 'XYXnXnY\n(ZYYYZnY / YXZYXYYY)',
+    group: 'ZYYYZnY_YXZYXYYY'
+}, {
+    id: 'YYZYZYXZ',
+    label: 'YYZYZYXZ\n(ZZ nXYYYYX YXXZYXZ)',
+    group: 'ZZ_nXYYYYX_YXXZYXZ'
+}, {
+    id: 'YYXYXYYXnY',
+    label: 'YYXYXYYXnY\n(YnZXY YXYXZYZX)',
+    group: 'YnXnYYn'
+}, {
+    id: 'YXZZXXYnZYXYn',
+    label: 'YXZZXXYnZYXYn\n(ZZ nXYYYYX YXXZYXZ)',
+    group: 'ZZ_nXYYYYX_YXXZYXZ'
+}, {
+    id: 'YXYXYXY | ZYYY | YXYY YZYYYYYZ',
+    label: 'YXYY YZYYYYYZ\n(ZYYXXZZYXYn)',
+    group: 'ZYYXXZZYXYn'
+}, {
+    id: 'YYYYYY',
+    label: 'YYYYYY\n(XnYYZXX YXZYXYYY)',
+    group: 'XnYYZXX_YXZYXYYY'
+}, {
+    id: 'YXX XXnXYY XZZYYYY | YYXnZXXnXYY',
+    label: 'YYXnZXXnXYY\n(ZYYXXZZYXYn)',
+    group: 'ZYYXXZZYXYn'
+}, {
+    id: 'YXX XXnXYY XZZYYYY',
+    label: 'YXX XXnXYY XZZYYYY\n(ZYYYZnY / YXZYXYYY)',
+    group: 'ZYYYZnY_YXZYXYYY'
+}, {
+    id: 'YXZXYXYXYYXZXZ',
+    label: 'YXZXYXYXYYXZXZ\n(ZYYYZnY / YXZYXYYY)',
+    group: 'ZYYYZnY_YXZYXYYY'
+}, {
+    id: 'YXZXYXYXYYXZXZ | XYYZZYYY',
+    label: 'XYYZZYYY\n(ZYYXXZZYXYn)',
+    group: 'ZYYXXZZYXYn'
+}, {
+    id: 'YYZXZYn YYYXXZY',
+    label: 'YYZXZYn YYYXXZY\n(ZZ nXYYYYX YXXZYXZ)',
+    group: 'ZZ_nXYYYYX_YXXZYXZ'
+}, {
+    id: 'YYZXZXZXY | ZYYY | YZYXYZXXY',
+    label: 'YZYXYZXXY\n(ZYYXXZZYXYn)',
+    group: 'ZYYXXZZYXYn'
+}, {
+    id: 'YYYnZXYYYY | ZYYY | ZYYnXYZZ XYXX YYYXZ',
+    label: 'ZYYnXYZZ XYXX YYYXZ\n(ZYYXXZZYXYn)',
+    group: 'ZYYXXZZYXYn'
+}, {
+    id: 'YYYXYXXYX',
+    label: 'YYYXYXXYX\n(ZYYYZnY / YXZYXYYY)',
+    group: 'ZYYYZnY_YXZYXYYY'
+}, {
+    id: 'ZZZYnYXZZYYY | XZYYXYYXYY',
+    label: 'XZYYXYYXYY\n(ZYYXXZZYXYn)',
+    group: 'ZYYXXZZYXYn'
+}, {
+    id: 'ZZZYnYXZZYYY',
+    label: 'ZZZYnYXZZYYY\n(ZYYYZnY / YXZYXYYY)',
+    group: 'ZYYYZnY_YXZYXYYY'
+}, {
+    id: 'YYYXZZnYYn',
+    label: 'YYYXZZnYYn\n(ZYYXXZZYXYn)',
+    group: 'ZYYXXZZYXYn'
+}, {
+    id: 'YZZYYXZ',
+    label: 'YZZYYXZ\n(ZYYYZnY / YXZYXYYY)',
+    group: 'ZYYYZnY_YXZYXYYY'
+}, {
+    id: 'YYXXXYYYXXYYX',
+    label: 'YYXXXYYYXXYYX\n(ZYYXXZZYXYn)',
+    group: 'ZYYXXZZYXYn'
+}, {
+    id: 'ZZZYXYn',
+    label: 'ZZZYXYn\n(ZYYYZnY / YXZYXYYY)',
+    group: 'ZYYYZnY_YXZYXYYY'
+}, {
+    id: 'YYYZYY | ZYYY | XYXXXY YXZYZX ZZY',
+    label: 'XYXXXY YXZYZX ZZY\n(ZYYXXZZYXYn)',
+    group: 'ZYYXXZZYXYn'
+}, {
+    id: 'YYYZYY | ZYYY | YYXnXnY YXZYZX ZZY',
+    label: 'YYXnXnY YXZYZX ZZY\n(ZYYXXZZYXYn)',
+    group: 'ZYYXXZZYXYn'
+}, {
+    id: 'YZXYXZXXZX',
+    label: 'YZXYXZXXZX\n(YnZXY YXYXZYZX)',
+    group: 'YnXnYYn'
+}, {
+    id: 'YXYXYZXY | ZYYY | ZYYYYnYZYZXXY',
+    label: 'ZYYYYnYZYZXXY\n(ZYYXXZZYXYn)',
+    group: 'ZYYXXZZYXYn'
+}, {
+    id: 'YXZYXZX | ZYYY | YZYXZY',
+    label: 'YZYXZY\n(ZYYXXZZYXYn)',
+    group: 'ZYYXXZZYXYn'
+}, {
+    id: 'YXZYXZX',
+    label: 'YXZYXZX\n(ZYYYZnY / YXZYXYYY)',
+    group: 'ZYYYZnY_YXZYXYYY'
+}, {
+    id: 'YXZYXZX | XnYYZXXXYXY',
+    label: 'XnYYZXXXYXY\n(XnYYZXX YXZYXYYY)',
+    group: 'XnYYZXX_YXZYXYYY'
+}, {
+    id: 'YXZZXY',
+    label: 'YXZZXY\n(ZYYYZnY / YXZYXYYY)',
+    group: 'ZYYYZnY_YXZYXYYY'
+}, {
+    id: 'YZnXYXYYYY | ZYYY | YYZXX',
+    label: 'YYZXX\n(ZYYXXZZYXYn)',
+    group: 'ZYYXXZZYXYn'
+}];
+var edges = [{
+    from: 'XXYnYXZ | ZYYY | XXZnYYZYXnXY',
+    to: 'XXYnYXZ',
+    label: 'XnXXZYY'
+}, {
+    from: 'XXYnYXZ | XnYYZnYYZYXnXYZYY',
+    to: 'XXYnYXZ',
+    label: 'XnXXZYY'
+}, {
+    from: 'ZXYZYZXYZXX | ZYYY | XYYYXYYY.YX',
+    to: 'XXYnYXZ',
+    label: 'XnXXZYY'
+}, {
+    from: 'XXYnYXZ',
+    to: 'XXYnYXZ | ZYYY | XXZnYYZYXnXY',
+    label: 'YYnY'
+}, {
+    from: 'XXYnYXZ',
+    to: 'XXYnYXZ | XnYYZnYYZYXnXYZYY',
+    label: 'YYnY'
+}, {
+    from: 'ZnXY (ZYYnXYZZ.ZYY)',
+    to: 'XXYnYXZ | XnYYZnYYZYXnXYZYY',
+    label: 'ZYnZXXnX'
+}, {
+    from: 'ZXYZYZXYZXX',
+    to: 'ZXYZYZXYZXX | ZYYY | XYYYXYYY.YX',
+    label: 'YYnY'
+}, {
+    from: 'ZXYZYZXYZXX | ZYYY | XYYYXYYY.YX',
+    to: 'ZXYZYZXYZXX',
+    label: 'XnXXZYY'
+}, {
+    from: 'XZZXZYYX YXZYYYXY, YXYYYY ZnZ ZXZYYY Xn XZ',
+    to: 'ZXYZYZXYZXX',
+    label: 'XnXXZYY'
+}, {
+    from: 'ZZYXZX',
+    to: 'ZZYXZXZ',
+    label: 'XnXXZYY'
+}, {
+    from: 'ZXYZYZXYZXX | ZYYY | YYXZYXZY',
+    to: 'ZZYXZXZ',
+    label: 'XnXXZYY'
+}, {
+    from: 'ZZYXZXZ',
+    to: 'ZZZY.YY',
+    label: 'XnXXZYY'
+}, {
+    from: 'YYYnZXYYYY | ZYYY | ZYYnXYZZ XYXX YYYXZ',
+    to: 'YYYnZXYYYY',
+    label: 'XnXXZYY'
+}, {
+    from: 'YYYnZXYYYY',
+    to: 'ZZZZYX',
+    label: 'XnXXZYY'
+}, {
+    from: 'YYZXZXZXY | ZYYY | YZYXYZXXY',
+    to: 'YYZXZXZXY',
+    label: 'XnXXZYY'
+}, {
+    from: 'YYZXZXZXY',
+    to: 'ZZXYYX',
+    label: 'YYXY'
+}, {
+    from: 'ZYZXYXY',
+    to: 'ZZXXYY',
+    label: 'XnXXZYY'
+}, {
+    from: 'ZZXnYYXXZXX',
+    to: 'YXYZ YXZXZ',
+    label: 'ZYYXXY'
+}, {
+    from: 'YXYZ',
+    to: 'YXYZ YXZXZ',
+    label: 'YYnXZ'
+}, {
+    from: 'ZZXnYYXXZXX',
+    to: 'ZZXnYYXXZXX | YXYZ ZX',
+    label: 'YYnY'
+}, {
+    from: 'YXYZ YXZXZ',
+    to: 'ZZXnYYXXZXX | YXYZ ZX',
+    label: 'YXZYZnZXZ YY'
+}, {
+    from: 'ZZYXZX | ZYYY | ZYYYYnZYZYXnX',
+    to: 'ZZYXZX',
+    label: 'XnXXZYY'
+}, {
+    from: 'ZZYXZX | ZYYY | XXYYZYXn',
+    to: 'ZZYXZX',
+    label: 'XnXXZYY'
+}, {
+    from: 'YXYYYYXZnXXZZY',
+    to: 'ZZYXZX',
+    label: 'XnXXZYY'
+}, {
+    from: 'ZXYZYZXYZXX',
+    to: 'ZXYZYZXYZXX | ZYYY | YYXZYXZY',
+    label: 'YYnY'
+}, {
+    from: 'XYYYYYYYXXXXZ',
+    to: 'ZZnXYYYYX.nXY',
+    label: 'XnXXZYY'
+}, {
+    from: 'ZZYXZX',
+    to: 'ZZYXZX | ZYYY | ZYYYYnZYZYXnX',
+    label: 'YYnY'
+}, {
+    from: 'ZZYXZX',
+    to: 'ZZYXZX | ZYYY | XXYYZYXn',
+    label: 'YYnY'
+}, {
+    from: 'ZYYYYX',
+    to: 'ZZYXYYYYYXZY',
+    label: 'XnXXZYY'
+}, {
+    from: 'ZZYXYYYYYXZY',
+    to: 'ZZYXXnXYXZXZ',
+    label: 'XnXXZYY'
+}, {
+    from: 'YYYZYY',
+    to: 'YYYZYY | ZXXYZXXZXY',
+    label: 'YYnY'
+}, {
+    from: 'ZZZYXYn',
+    to: 'YYYZYY | ZXXYZXXZXY',
+    label: 'YYXY'
+}, {
+    from: 'XXnXYYY',
+    to: 'YYYZYY | ZXXYZXXZXY',
+    label: 'YYXY'
+}, {
+    from: 'YYYZYY | ZYYY | nXYYXY',
+    to: 'YYYZYY | ZXXYZXXZXY',
+    label: 'XnXXZYY'
+}, {
+    from: 'YXZYXZX',
+    to: 'YYYZYY | ZXXYZXXZXY',
+    label: 'YYXY'
+}, {
+    from: 'YYYZYY',
+    to: 'ZXXXXY',
+    style: 'line',
+    label: 'YXXZYXZ'
+}, {
+    from: 'YYYZYY | ZXXYZXXZXY',
+    to: 'ZZYYYXY | ZZY: XnYXYY ZZY',
+    label: 'XnXXZYY'
+}, {
+    from: 'ZZXnYYXXZXX | YXYZ ZX',
+    to: 'ZZXnYYXXZXX | YXYZ ZX | ZYYY | ZYYYYXYYZXXXYZYZ',
+    label: 'YYnY'
+}, {
+    from: 'ZZXnYYXXZXX | YXYZ ZX | ZYYY | ZYYYYXYYZXXXYZYZ',
+    to: 'ZZYYYXY | ZZY: YXYY ZZY',
+    label: 'XnXXZYY'
+}, {
+    from: 'YYZXZXZXY',
+    to: 'ZZYYYXY | ZZY: YXYY ZZY',
+    label: 'XnXXZYY'
+}, {
+    from: 'YYYZYY | ZXXYZXXZXY',
+    to: 'ZZYYYXY | ZZY: YXYY ZZY',
+    label: 'XnXXZYY'
+}, {
+    from: 'YXnYZZYYnXYYYYXY',
+    to: 'YZXXZYXXYYXZXZ',
+    label: 'XnXXZYY'
+}, {
+    from: 'YZXXZYXXYYXZXZ | ZYYY | YXXXZYXYnXXnXY',
+    to: 'YZXXZYXXYYXZXZ',
+    label: 'XnXXZYY'
+}, {
+    from: 'YZXXZYXXYYXZXZ | ZYYY | YXXXZYXYnXXnXY',
+    to: 'YZXXZYXXYYXZXZ',
+    label: 'YXYYYY'
+}, {
+    from: 'YZXXZYXXYYXZXZ | ZYYY | YXZXYXXXXZYYnXYZZ',
+    to: 'YZXXZYXXYYXZXZ',
+    label: 'XnXXZYY'
+}, {
+    from: 'YZXXZYXXYYXZXZ',
+    to: 'ZZYXYYXYX.ZYY',
+    label: 'XnXXZYY'
+}, {
+    from: 'XXYnYXZ',
+    to: 'ZYYnXYYY',
+    label: 'XnXXZYY'
+}, {
+    from: 'ZZYXZXZ',
+    to: 'ZYYnXYYY',
+    label: 'XnXXZYY'
+}, {
+    from: 'ZZnXYYYYX.nXY',
+    to: 'ZYYnXYYY',
+    label: 'XnXXZYY'
+}, {
+    from: 'ZZYXZX',
+    to: 'ZYYnXYYY',
+    label: 'XnXXZYY'
+}, {
+    from: 'ZYYZXXZZ',
+    to: 'ZYYnXYYY',
+    label: 'XnXXZYY'
+}, {
+    from: 'ZYY XnYXYZZYXYX',
+    to: 'ZYYnXYYY',
+    label: 'XnXXZYY'
+}, {
+    from: 'XnXXXY',
+    to: 'ZYYnXYYY',
+    label: 'XnXXZYY'
+}, {
+    from: 'YYZYZ',
+    to: 'ZYYnXYYY',
+    label: 'XnXXZYY'
+}, {
+    from: 'YXYXYXY',
+    to: 'ZYYnXYYY',
+    label: 'XnXXZYY'
+}, {
+    from: 'YXXXYYXZXZ',
+    to: 'ZYYnXYYY',
+    label: 'XnXXZYY'
+}, {
+    from: 'YYYnZXYYYY',
+    to: 'ZYYnXYYY',
+    label: 'XnXXZYY'
+}, {
+    from: 'YXXnX YZnX XZZY',
+    to: 'ZYYnXYYY',
+    label: 'XnXXZYY'
+}, {
+    from: 'ZYYZXXZZ | ZYYY | ZYYZXXZZ ZYY',
+    to: 'ZYYZXXZZ',
+    label: 'XnXXZYY'
+}, {
+    from: 'XZZXZYYX++',
+    to: 'ZYYZXXZZ',
+    label: 'XnXXZYY'
+}, {
+    from: 'ZYY XnYXYZZYXYX | ZYYY | XZYZYZYXYYYXYYXY',
+    to: 'ZYY XnYXYZZYXYX',
+    label: 'XnXXZYY'
+}, {
+    from: 'YYnXYXYX',
+    to: 'ZYY XnYXYZZYXYX',
+    label: 'XnXXZYY'
+}, {
+    from: 'YZXXZYXXYYXZXZ',
+    to: 'ZYY XnYXYZZYXYX',
+    label: 'XnXXZYY'
+}, {
+    from: 'YZYXYZYXZXZXY',
+    to: 'ZYY XnYXYZZYXYX',
+    label: 'XnXXZYY'
+}, {
+    from: 'XnXXXY | ZYYY | YXZYYXYYXZY',
+    to: 'XnXXXY',
+    label: 'XnXXZYY'
+}, {
+    from: 'ZXXXnX XYYXnYXYn',
+    to: 'YYZYZ',
+    label: 'XnXXZYY'
+}, {
+    from: 'ZXYZYZXYZXX',
+    to: 'YXYXYXY',
+    label: 'XnXXZYY'
+}, {
+    from: 'YXYXYXY | ZYYY | YXYY YZYYYYYZ',
+    to: 'YXYXYXY',
+    label: 'XnXXZYY'
+}, {
+    from: 'ZZYXYYYYYXZY',
+    to: 'YXXXYYXZXZ',
+    label: 'XnXXZYY'
+}, {
+    from: 'ZYYnXYYY',
+    to: 'YXXXYYXZXZ',
+    label: 'XnXXZYY'
+}, {
+    from: 'XXXYYZ',
+    to: 'YXXXYYXZXZ',
+    label: 'XnXXZYY'
+}, {
+    from: 'XYXnXnY',
+    to: 'YXXXYYXZXZ',
+    label: 'XnXXZYY'
+}, {
+    from: 'YZYYYY',
+    to: 'YXXXYYXZXZ',
+    label: 'XnXXZYY'
+}, {
+    from: 'YYnYXXYZ',
+    to: 'YXXXYYXZXZ',
+    label: 'XnXXZYY'
+}, {
+    from: 'YXZZXXYnZYXYn',
+    to: 'YXXXYYXZXZ',
+    label: 'XnXXZYY'
+}, {
+    from: 'YXYXYXY',
+    to: 'YXXXYYXZXZ',
+    label: 'XnXXZYY'
+}, {
+    from: 'YYXXXYYYXXYYX',
+    to: 'YXXnX YZnX XZZY',
+    label: 'XnXXZYY'
+}, {
+    from: 'ZYYnXYYY',
+    to: 'ZYXZY',
+    label: 'XnXXZYY'
+}, {
+    from: 'ZXXXXY',
+    to: 'ZXXXXY | YYZXYX',
+    label: 'YYnY'
+}, {
+    from: 'YYYZYY | ZXXYZXXZXY',
+    to: 'ZXXXXY | YYZXYX',
+    label: 'YYXY'
+}, {
+    from: 'YYYZYY | ZXXYZXXZXY',
+    to: 'ZXXXXY',
+    label: 'YYYYYYY'
+}, {
+    from: 'YZXXZYXXYYXZXZ',
+    to: 'ZXXnXY',
+    label: 'XnXXZYY'
+}, {
+    from: 'ZYYZXXZZ',
+    to: 'ZYYZXXZZ | ZYYY | ZYYZXXZZ ZYY',
+    label: 'YYnY'
+}, {
+    from: 'YZYXYZYXZXZXY',
+    to: 'ZXXZXYZY',
+    label: 'XnXXZYY'
+}, {
+    from: 'YXXYXYYYXX',
+    to: 'YXXYXYYYXX | YXXYXYYYXX YYYXZZY',
+    label: 'YYnY'
+}, {
+    from: 'YXZYXZX | XnYYZXXXYXY',
+    to: 'YXXYXYYYXX | YXXYXYYYXX YYYXZZY',
+    label: 'ZYnZXXnX'
+}, {
+    from: 'YXXYXYYYXX | YXXYXYYYXX YYYXZZY',
+    to: 'ZYnZYXY',
+    label: 'XnXXZYY'
+}, {
+    from: 'YXYXYn',
+    to: 'YXYXYn | ZYZXXYXX',
+    label: 'YYnY'
+}, {
+    from: 'ZYnZYXY',
+    to: 'ZYnZYXY | YXZYZX YYYYXZY',
+    label: 'YYnY'
+}, {
+    from: 'YXYXYn | ZYZXXYXX',
+    to: 'ZYnZYXY | YXZYZX YYYYXZY',
+    label: 'ZYnZXXnX'
+}, {
+    from: 'YZXXZYXXYYXZXZ',
+    to: 'ZYYYXZZ',
+    label: 'XnXXZYY'
+}, {
+    from: 'ZYY XnYXYZZYXYX',
+    to: 'ZYY XnYXYZZYXYX | ZYYY | XZYZYZYXYYYXYYXY',
+    label: 'YYnY'
+}, {
+    from: 'ZXZZZXYY | XXnYZY ZYYYYXY ZYYYZnXYn',
+    to: 'YYnXYXYX',
+    label: 'XnXXZYY'
+}, {
+    from: 'YXYXYZXY',
+    to: 'YYnXYXYX',
+    label: 'XnXXZYY'
+}, {
+    from: 'XXYnYXZ',
+    to: 'ZYXYXY',
+    label: 'XnXXZYY'
+}, {
+    from: 'YYYZYY',
+    to: 'YYYZYY | ZYYY | nXYYXY',
+    label: 'YYnY'
+}, {
+    from: 'YYYZYY | ZYYY | nXYYXY',
+    to: 'ZYYYYYXZXY',
+    label: 'YYXY'
+}, {
+    from: 'YYYnZXYYYY',
+    to: 'XXXYYZ',
+    label: 'XnXXZYY'
+}, {
+    from: 'XnXXXY',
+    to: 'XnXXXY | ZYYY | YXZYYXYYXZY',
+    label: 'YYnY'
+}, {
+    from: 'YXYXYn | ZYZXXYXX',
+    to: 'XnXXXY | ZYYY | YXZYYXYYXZY',
+    label: 'ZYnZXXnX'
+}, {
+    from: 'YXYZ',
+    to: 'YXYZ ZXYXZY',
+    label: 'YYnXZ'
+}, {
+    from: 'XnYYY',
+    to: 'XnYYY | ZXYY',
+    label: 'YYnY'
+}, {
+    from: 'YXYZ ZXYXZY',
+    to: 'XnYYY | ZXYY',
+    label: 'YXZYZnZXZ YY'
+}, {
+    from: 'YXYYYY',
+    to: 'XnYYY | ZXYY',
+    label: 'YYnXZ'
+}, {
+    from: 'XnYYY',
+    to: 'YXYYYY',
+    label: 'ZYYXXY'
+}, {
+    from: 'YXYZ',
+    to: 'YXYYYY',
+    label: 'YXZYZnZXZ YY'
+}, {
+    from: 'ZYYnXYYY',
+    to: 'XYYYYYYX',
+    label: 'XnXXZYY'
+}, {
+    from: 'YYXYYnXZ',
+    to: 'XXnXYYY',
+    label: 'ZYnZXXnX'
+}, {
+    from: 'YYYnZXYYYY',
+    to: 'XXnXYYY',
+    label: 'ZYnZXXnX'
+}, {
+    from: 'XYYnYYYYZX',
+    to: 'XYYnYYYYZX | ZXZXYXY',
+    label: 'YYnY'
+}, {
+    from: 'XXnXYYY',
+    to: 'XYYnYYYYZX | ZXZXYXY',
+    label: 'XnXXZYY'
+}, {
+    from: 'YYXYYnXZ',
+    to: 'YYXYYnXZ | YYXYYnXZ XnYYZXXXY',
+    label: 'YYnY'
+}, {
+    from: 'YYXYYnXZ | YYXYYnXZ XnYYZXXXY',
+    to: 'XXnXXY',
+    label: 'ZYnZXXnX'
+}, {
+    from: 'XXnXYYY',
+    to: 'XXnXYYY | ZYYY | YnZY.ZY',
+    label: 'YYnY'
+}, {
+    from: 'YYXYYnXZ | YYXYYnXZ XnYYZXXXY',
+    to: 'XXnXYYY | ZYYY | YnZY.ZY',
+    label: 'ZYnZXXnX'
+}, {
+    from: 'ZZYXZXZ',
+    to: 'XXYXYZXX',
+    label: 'XnXXZYY'
+}, {
+    from: 'YXYXYXY',
+    to: 'YZYYYY',
+    label: 'XnXXZYY'
+}, {
+    from: 'YXnYZZYYnXYYYYXY',
+    to: 'YXnYZZYYnXYYYYXY | ZYYY | YnXYXXnZYYZYYY',
+    label: 'YYnY'
+}, {
+    from: 'YXnYZZYYnXYYYYXY | ZYYY | YnXYXXnZYYZYYY',
+    to: 'YXnYZZYYnXYYYYXY',
+    label: 'XnXXZYY'
+}, {
+    from: 'ZXZZZXYY',
+    to: 'ZXZZZXYY | XXnYZY ZYYYYXY ZYYYZnXYn',
+    label: 'YYnY'
+}, {
+    from: 'YXYXYZXY | ZYYY | ZYYYYnYZYZXXY',
+    to: 'YXYXYZXY',
+    label: 'XnXXZYY'
+}, {
+    from: 'YYXYYnXZ',
+    to: 'YYXYYnXZ | ZYYY | YYXYYnXZ ZXYYYX YYYXZZY',
+    label: 'YYnY'
+}, {
+    from: 'YYXYYnXZ | YYXYYnXZ XnYYZXXXY',
+    to: 'YYXYYnXZ | ZYYY | YYXYYnXZ ZXYYYX YYYXZZY',
+    label: 'ZYnZXXnX'
+}, {
+    from: 'XXYnYXZ',
+    to: 'YYnYXXYZ',
+    label: 'YYXY'
+}, {
+    from: 'YYXYYnXZ | ZYYY | YYXYYnXZ ZXYYYX YYYXZZY',
+    to: 'YYnYXXYZ',
+    label: 'XnXXZYY'
+}, {
+    from: 'YZXXZYXXYYXZXZ',
+    to: 'YZXXZYXXYYXZXZ | ZYYY | YXXXZYXYnXXnXY',
+    label: 'YYnY'
+}, {
+    from: 'YZXXZYXXYYXZXZ',
+    to: 'YZXXZYXXYYXZXZ | ZYYY | YXZXYXXXXZYYnXYZZ',
+    label: 'YYnY'
+}, {
+    from: 'YXYXYn | ZYZXXYXX',
+    to: 'YYYXYXYXY YYY',
+    label: 'ZYnZXXnX'
+}, {
+    from: 'YYZYZ',
+    to: 'YYZYZ | ZYYY | ZYYnXYZZYXYYY',
+    label: 'YYnY'
+}, {
+    from: 'YZnXYXYYYY | ZYYY | YYZXX',
+    to: 'YZnXYXYYYY',
+    label: 'XnXXZYY'
+}, {
+    from: 'YZnXYXYYYY',
+    to: 'YYXZXZYZ.nXY',
+    label: 'XnXXZYY'
+}, {
+    from: 'ZYnZYXY',
+    to: 'YYXZXXYnX',
+    label: 'XnXXZYY'
+}, {
+    from: 'XYXnXnY',
+    to: 'YYZYZYXZ',
+    label: 'XnXXZYY'
+}, {
+    from: 'YZYXYZYXZXZXY',
+    to: 'YYXYXYYXnY',
+    label: 'XnXXZYY'
+}, {
+    from: 'ZYYnXYYY',
+    to: 'YXZZXXYnZYXYn',
+    label: 'XnXXZYY'
+}, {
+    from: 'YXYXYXY',
+    to: 'YXYXYXY | ZYYY | YXYY YZYYYYYZ',
+    label: 'YYnY'
+}, {
+    from: 'YYYYYY',
+    to: 'YXYXYXY | ZYYY | YXYY YZYYYYYZ',
+    label: 'ZYnZXXnX'
+}, {
+    from: 'YYYnZXYYYY',
+    to: 'YYYYYY',
+    label: 'YYXY'
+}, {
+    from: 'YXX XXnXYY XZZYYYY',
+    to: 'YXX XXnXYY XZZYYYY | YYXnZXXnXYY',
+    label: 'YYnY'
+}, {
+    from: 'YXX XXnXYY XZZYYYY | YYXnZXXnXYY',
+    to: 'YXZXYXYXYYXZXZ',
+    label: 'XnXXZYY'
+}, {
+    from: 'YXZXYXYXYYXZXZ',
+    to: 'YXZXYXYXYYXZXZ | XYYZZYYY',
+    label: 'YYnY'
+}, {
+    from: 'ZZYXZX',
+    to: 'YXZXYXYXYYXZXZ | XYYZZYYY',
+    label: 'XnXXZYY'
+}, {
+    from: 'XYXnXnY',
+    to: 'YYZXZYn YYYXXZY',
+    label: 'XnXXZYY'
+}, {
+    from: 'YYZXZXZXY',
+    to: 'YYZXZXZXY | ZYYY | YZYXYZXXY',
+    label: 'YYnY'
+}, {
+    from: 'YYYnZXYYYY',
+    to: 'YYYnZXYYYY | ZYYY | ZYYnXYZZ XYXX YYYXZ',
+    label: 'YYnY'
+}, {
+    from: 'YYYXZZnYYn',
+    to: 'YYYXYXXYX',
+    label: 'XnXXZYY'
+}, {
+    from: 'YXYYYYXZnXXZZY',
+    to: 'YYYXYXXYX',
+    label: 'XnXXZYY'
+}, {
+    from: 'ZZZYnYXZZYYY',
+    to: 'ZZZYnYXZZYYY | XZYYXYYXYY',
+    label: 'YYnY'
+}, {
+    from: 'ZZZYnYXZZYYY | XZYYXYYXYY',
+    to: 'YYYXZZnYYn',
+    label: 'XnXXZYY'
+}, {
+    from: 'XXYnYXZ',
+    to: 'YZZYYXZ',
+    label: 'XnXXZYY'
+}, {
+    from: 'ZYnZYXY',
+    to: 'YZZYYXZ',
+    label: 'XnXXZYY'
+}, {
+    from: 'YYYZYY',
+    to: 'YYYZYY | ZYYY | XYXXXY YXZYZX ZZY',
+    label: 'YYnY'
+}, {
+    from: 'YYYZYY',
+    to: 'YYYZYY | ZYYY | YYXnXnY YXZYZX ZZY',
+    label: 'YYnY'
+}, {
+    from: 'XXYnYXZ',
+    to: 'YZXYXZXXZX',
+    label: 'XnXXZYY'
+}, {
+    from: 'YXYXYZXY',
+    to: 'YXYXYZXY | ZYYY | ZYYYYnYZYZXXY',
+    label: 'YYnY'
+}, {
+    from: 'YXZYXZX',
+    to: 'YXZYXZX | ZYYY | YZYXZY',
+    label: 'YYnY'
+}, {
+    from: 'YXZYXZX',
+    to: 'YXZYXZX | XnYYZXXXYXY',
+    label: 'YYnY'
+}, {
+    from: 'YYYXZZnYYn',
+    to: 'YXZZXY',
+    label: 'XnXXZYY'
+}, {
+    from: 'YXYYYYXZnXXZZY',
+    to: 'YXZZXY',
+    label: 'XnXXZYY'
+}, {
+    from: 'YZnXYXYYYY',
+    to: 'YZnXYXYYYY | ZYYY | YYZXX',
+    label: 'YYnY'
+}];
+var container = document.getElementById('mygraph');
+var data = {
+    nodes: nodes,
+    edges: edges
+};
+var options = {
+    width: '100%',
+    height: '700px',
+    navigation: true,
+    configurePhysics: false,
+    smoothCurves: true,
+    edges: {
+        style: 'arrow',
+        color: {
+            highlight: 'red'
+        }
+    },
+    hierarchicalLayout: false,
+    stabilizationIterations: 5000,
+    stabilize: true,
+    physics: {
+        barnesHut: {
+            enabled: true,
+            gravitationalConstant: -5000,
+            centralGravity: 0.02,
+            springLength: 30,
+            springConstant: 0.005,
+            damping: 0.09
+        }
+    },
+    keyboard: true,
+};
+var graph = new vis.Graph(container, data, options);
+
+function registerEventListeners() {
+    for (var i = 0; i < 67; i++) {
+        var graph = document.getElementById(i + 1);
+        graph.addEventListener('mouseover', selectGraphNodes);
+    }
+}
+
+function displayGraph(graphId) {
+    var data;
+    var title = document.getElementById('title');
+    if (graphId != 0) {
+        title.innerHTML = 'Graph#' + graphId;
+        data = {
+            nodes: nodesByGraph.graphNodes[graphId - 1],
+            edges: edgesByGraph.graphEdges[graphId - 1]
+        };
+    } else {
+        title.innerHTML = 'All Graphs';
+        data = {
+            nodes: nodes,
+            edges: edges
+        };
+    }
+    graph.setData(data, false);
+    graph.zoomExtent();
+}
+
+function selectGraphNodes(e) {
+    var graphId = e.target.getAttributeNode('id').value;
+    var graphNodeIds = [];
+    for (var i = 0; i < nodesByGraph.graphNodes[graphId - 1].length; i++) {
+        graphNodeIds.push(nodesByGraph.graphNodes[graphId - 1][i].id);
+    }
+    graph.setSelection(graphNodeIds);
+}
+registerEventListeners();
+</script>
+
+
+</body>
+
+</html>

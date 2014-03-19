@@ -96,7 +96,10 @@ var physicsMixin = {
     // of _addForce
 
     this._calculateGravitationalForces();
-    this._calculateNodeForces();
+    var time = Date.now()
+    this._calculateNodeForcesWithWorkers();
+    console.log(Date.now() - time)
+//    this._calculateNodeForces();
 
     if (this.constants.smoothCurves == true) {
       this._calculateSpringForcesWithSupport();
