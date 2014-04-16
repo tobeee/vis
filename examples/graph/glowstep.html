@@ -65,9 +65,10 @@
       edges = [];
       var connectionCount = [];
 
-        nodes.push({id: "master1", label: 'master1', type:'master', x:-300,y:300, color:"#00FF00", allowedToMoveX:false, allowedToMoveY:false});
-        nodes.push({id: "master2", label: 'master2', type:'master', x:300,y:300, color:"#00FF00", allowedToMoveX:true, allowedToMoveY:true});
-        nodes.push({id: "master3", label: 'master3', type:'master', x:0,y:-300, color:"#00FF00", allowedToMoveX:true, allowedToMoveY:true});
+        nodes.push({id: "master1", label: 'master1', type:'master', x:-300,y:0, color:"#00FF00", allowedToMoveX:false, allowedToMoveY:false});
+        nodes.push({id: "master2", label: 'master2', type:'master', x:300,y:0, color:"#00FF00", allowedToMoveX:true, allowedToMoveY:false});
+        nodes.push({id: "master3", label: 'master3', type:'master', x:0,y:-600, color:"#00FF00", allowedToMoveX:true, allowedToMoveY:true});
+        //nodes.push({id: "master4", label: 'master4', type:'master', x:0,y:300, color:"#00FF00", allowedToMoveX:true, allowedToMoveY:true});
 
       // create a graph
       var container = document.getElementById('mygraph');

@@ -821,9 +821,11 @@ Graph.prototype._connectToMaster = function(master) {
     if (this.nodes.hasOwnProperty(nodeId)) {
       var node = this.nodes[nodeId];
       if (node.type == "slave") {
-        var dist = Math.sqrt(Math.pow((this.nodes[master].x - node.x),2.0) + Math.pow((this.nodes[master].y - node.y),2.0));
-        var data = {from:master, to:nodeId, length:dist};
-        this.edgesData.add(data)
+        //if (Math.random() > 0.1) {
+          var dist = Math.sqrt(Math.pow((this.nodes[master].x - node.x),2.0) + Math.pow((this.nodes[master].y - node.y),2.0));
+          var data = {from:master, to:nodeId, length:dist};
+          this.edgesData.add(data)
+        //}
       }
     }
   }
