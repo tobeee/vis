@@ -300,7 +300,12 @@ var manipulationMixin = {
           var me = this;
           this.triggerFunctions.add(defaultData, function(finalizedData) {
             me.nodesData.add(finalizedData);
-            me._createManipulatorBar();
+            if (me.shiftPressed) {
+              me._createAddNodeToolbar();
+            }
+            else {
+              me._createManipulatorBar();
+            }
             me.moving = true;
             me.start();
           });

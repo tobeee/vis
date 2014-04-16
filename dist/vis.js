@@ -4,8 +4,8 @@
  *
  * A dynamic, browser-based visualization library.
  *
- * @version 0.7.3-SNAPSHOT
- * @date    2014-04-15
+ * @version @@version
+ * @date    @@date
  *
  * @license
  * Copyright (C) 2011-2014 Almende B.V, http://almende.com
@@ -9537,6 +9537,7 @@ function Node(properties, imagelist, grouplist, constants) {
   this.damping = constants.physics.damping;
   this.mass = 1;  // kg
   this.fixedData = {x:null,y:null};
+  this.type = "slave";
 
   this.setProperties(properties, constants);
 
@@ -9556,6 +9557,7 @@ function Node(properties, imagelist, grouplist, constants) {
   this.canvasTopLeft = {"x": -300, "y": -300};
   this.canvasBottomRight = {"x":  300, "y":  300};
   this.parentEdgeId = null;
+
 }
 
 /**
@@ -9616,6 +9618,7 @@ Node.prototype.setProperties = function(properties, constants) {
   if (properties.x !== undefined)         {this.x = properties.x;}
   if (properties.y !== undefined)         {this.y = properties.y;}
   if (properties.value !== undefined)     {this.value = properties.value;}
+  if (properties.type !== undefined)     {this.type = properties.type;}
   if (properties.level !== undefined)     {this.level = properties.level; this.preassignedLevel = true;}
 
 
@@ -12201,23 +12204,25 @@ var barnesHutMixin = {
    * @private
    */
   _calculateNodeForces : function() {
-    var node;
-    var nodes = this.calculationNodes;
-    var nodeIndices = this.calculationNodeIndices;
-    var nodeCount = nodeIndices.length;
+    if (this.constants.physics.barnesHut.gravitationalConstant != 0) {
+      var node;
+      var nodes = this.calculationNodes;
+      var nodeIndices = this.calculationNodeIndices;
+      var nodeCount = nodeIndices.length;
 
-    this._formBarnesHutTree(nodes,nodeIndices);
+      this._formBarnesHutTree(nodes,nodeIndices);
 
-    var barnesHutTree = this.barnesHutTree;
+      var barnesHutTree = this.barnesHutTree;
 
-    // place the nodes one by one recursively
-    for (var i = 0; i < nodeCount; i++) {
-      node = nodes[nodeIndices[i]];
-      // starting with root is irrelevant, it never passes the BarnesHut condition
-      this._getForceContribution(barnesHutTree.root.children.NW,node);
-      this._getForceContribution(barnesHutTree.root.children.NE,node);
-      this._getForceContribution(barnesHutTree.root.children.SW,node);
-      this._getForceContribution(barnesHutTree.root.children.SE,node);
+      // place the nodes one by one recursively
+      for (var i = 0; i < nodeCount; i++) {
+        node = nodes[nodeIndices[i]];
+        // starting with root is irrelevant, it never passes the BarnesHut condition
+        this._getForceContribution(barnesHutTree.root.children.NW,node);
+        this._getForceContribution(barnesHutTree.root.children.NE,node);
+        this._getForceContribution(barnesHutTree.root.children.SW,node);
+        this._getForceContribution(barnesHutTree.root.children.SE,node);
+      }
     }
   },
 
@@ -13240,7 +13245,12 @@ var manipulationMixin = {
           var me = this;
           this.triggerFunctions.add(defaultData, function(finalizedData) {
             me.nodesData.add(finalizedData);
-            me._createManipulatorBar();
+            if (me.shiftPressed) {
+              me._createAddNodeToolbar();
+            }
+            else {
+              me._createManipulatorBar();
+            }
             me.moving = true;
             me.start();
           });
@@ -16077,6 +16087,10 @@ function Graph (container, data, options) {
   this.selectable = true;
   this.initializing = true;
 
+
+
+  this.shiftPressed = false;
+
   // these functions are triggered when the dataset is edited
   this.triggerFunctions = {add:null,edit:null,connect:null,delete:null};
 
@@ -16660,6 +16674,7 @@ Graph.prototype.setOptions = function (options) {
           this.constants.dataManipulation[prop] = options.dataManipulation[prop];
         }
       }
+      this.editMode = this.constants.dataManipulation.initiallyVisible;
     }
     else if (options.dataManipulation !== undefined)  {
       this.constants.dataManipulation.enabled = false;
@@ -16760,7 +16775,7 @@ Graph.prototype.setOptions = function (options) {
 
 
   // bind keys. If disabled, this will not do anything;
-  this._createKeyBinds();
+  this._bindKeys();
 
   this.setSize(this.width, this.height);
   this._setTranslation(this.frame.clientWidth / 2, this.frame.clientHeight / 2);
@@ -16824,16 +16839,92 @@ Graph.prototype._create = function () {
 
 };
 
+Graph.prototype._pressShift = function() {
+  this.shiftPressed = true;
+}
+Graph.prototype._releaseShift = function() {
+  this.shiftPressed = false;
+}
+
+Graph.prototype._connectToMasters = function() {
+
+  var edgesPresent = false;
+  for (var edgeId in this.edges) {
+    if (this.edges.hasOwnProperty(edgeId)) {
+      edgesPresent = true;
+      break;
+    }
+  }
+
+  if (edgesPresent) {
+    this._shuffleSlaves();
+  }
+  else {
+    for (var nodeId in this.nodes) {
+      if (this.nodes.hasOwnProperty(nodeId)) {
+        var node = this.nodes[nodeId];
+        if (node.type == "master") {
+          this._connectToMaster(nodeId);
+        }
+      }
+    }
+  }
+
+  this.moving = true;
+  this.start();
+}
+
+Graph.prototype._connectToMaster = function(master) {
+  for (var nodeId in this.nodes) {
+    if (this.nodes.hasOwnProperty(nodeId)) {
+      var node = this.nodes[nodeId];
+      if (node.type == "slave") {
+        var dist = Math.sqrt(Math.pow((this.nodes[master].x - node.x),2.0) + Math.pow((this.nodes[master].y - node.y),2.0));
+        var data = {from:master, to:nodeId, length:dist};
+        this.edgesData.add(data)
+      }
+    }
+  }
+}
+
+
+Graph.prototype._shuffleSlaves = function() {
+  var minX = 1e9, maxX = -1e9, minY = 1e9, maxY = -1e9;
+  for (var nodeId in this.nodes) {
+    if (this.nodes.hasOwnProperty(nodeId)) {
+      var node = this.nodes[nodeId];
+      if (node.type == "master") {
+        if (minX > (node.x)) {minX = node.x;}
+        if (maxX < (node.x)) {maxX = node.x;}
+        if (minY > (node.y)) {minY = node.y;}
+        if (maxY < (node.y)) {maxY = node.y;}
+      }
+    }
+  }
+
+  for (var nodeId in this.nodes) {
+    if (this.nodes.hasOwnProperty(nodeId)) {
+      var node = this.nodes[nodeId];
+      if (node.type == "slave") {
+        node.x = (Math.random()-0.5) * (maxX - minX) * 0.9;
+        node.y = (Math.random()-0.5) * (maxY - minY) * 0.9;
+      }
+    }
+  }
+}
 
 /**
  * Binding the keys for keyboard navigation. These functions are defined in the NavigationMixin
  * @private
  */
-Graph.prototype._createKeyBinds = function() {
+Graph.prototype._bindKeys = function() {
   var me = this;
   this.mousetrap = mousetrap;
 
   this.mousetrap.reset();
+  this.mousetrap.bind("shift", this._pressShift.bind(me) , "keydown");
+  this.mousetrap.bind("shift", this._releaseShift.bind(me) , "keyup");
+  this.mousetrap.bind("space", this._connectToMasters.bind(me) , "keydown");
 
   if (this.constants.keyboard.enabled == true) {
     this.mousetrap.bind("up",   this._moveUp.bind(me)   , "keydown");

@@ -69,6 +69,7 @@ function Node(properties, imagelist, grouplist, constants) {
   this.damping = constants.physics.damping;
   this.mass = 1;  // kg
   this.fixedData = {x:null,y:null};
+  this.type = "slave";
 
   this.setProperties(properties, constants);
 
@@ -88,6 +89,7 @@ function Node(properties, imagelist, grouplist, constants) {
   this.canvasTopLeft = {"x": -300, "y": -300};
   this.canvasBottomRight = {"x":  300, "y":  300};
   this.parentEdgeId = null;
+
 }
 
 /**
@@ -148,6 +150,7 @@ Node.prototype.setProperties = function(properties, constants) {
   if (properties.x !== undefined)         {this.x = properties.x;}
   if (properties.y !== undefined)         {this.y = properties.y;}
   if (properties.value !== undefined)     {this.value = properties.value;}
+  if (properties.type !== undefined)     {this.type = properties.type;}
   if (properties.level !== undefined)     {this.level = properties.level; this.preassignedLevel = true;}
 
 

@@ -29,6 +29,10 @@ function Graph (container, data, options) {
   this.selectable = true;
   this.initializing = true;
 
+
+
+  this.shiftPressed = false;
+
   // these functions are triggered when the dataset is edited
   this.triggerFunctions = {add:null,edit:null,connect:null,delete:null};
 
@@ -612,6 +616,7 @@ Graph.prototype.setOptions = function (options) {
           this.constants.dataManipulation[prop] = options.dataManipulation[prop];
         }
       }
+      this.editMode = this.constants.dataManipulation.initiallyVisible;
     }
     else if (options.dataManipulation !== undefined)  {
       this.constants.dataManipulation.enabled = false;
@@ -712,7 +717,7 @@ Graph.prototype.setOptions = function (options) {
 
 
   // bind keys. If disabled, this will not do anything;
-  this._createKeyBinds();
+  this._bindKeys();
 
   this.setSize(this.width, this.height);
   this._setTranslation(this.frame.clientWidth / 2, this.frame.clientHeight / 2);
@@ -776,16 +781,92 @@ Graph.prototype._create = function () {
 
 };
 
+Graph.prototype._pressShift = function() {
+  this.shiftPressed = true;
+}
+Graph.prototype._releaseShift = function() {
+  this.shiftPressed = false;
+}
+
+Graph.prototype._connectToMasters = function() {
+
+  var edgesPresent = false;
+  for (var edgeId in this.edges) {
+    if (this.edges.hasOwnProperty(edgeId)) {
+      edgesPresent = true;
+      break;
+    }
+  }
+
+  if (edgesPresent) {
+    this._shuffleSlaves();
+  }
+  else {
+    for (var nodeId in this.nodes) {
+      if (this.nodes.hasOwnProperty(nodeId)) {
+        var node = this.nodes[nodeId];
+        if (node.type == "master") {
+          this._connectToMaster(nodeId);
+        }
+      }
+    }
+  }
+
+  this.moving = true;
+  this.start();
+}
+
+Graph.prototype._connectToMaster = function(master) {
+  for (var nodeId in this.nodes) {
+    if (this.nodes.hasOwnProperty(nodeId)) {
+      var node = this.nodes[nodeId];
+      if (node.type == "slave") {
+        var dist = Math.sqrt(Math.pow((this.nodes[master].x - node.x),2.0) + Math.pow((this.nodes[master].y - node.y),2.0));
+        var data = {from:master, to:nodeId, length:dist};
+        this.edgesData.add(data)
+      }
+    }
+  }
+}
+
+
+Graph.prototype._shuffleSlaves = function() {
+  var minX = 1e9, maxX = -1e9, minY = 1e9, maxY = -1e9;
+  for (var nodeId in this.nodes) {
+    if (this.nodes.hasOwnProperty(nodeId)) {
+      var node = this.nodes[nodeId];
+      if (node.type == "master") {
+        if (minX > (node.x)) {minX = node.x;}
+        if (maxX < (node.x)) {maxX = node.x;}
+        if (minY > (node.y)) {minY = node.y;}
+        if (maxY < (node.y)) {maxY = node.y;}
+      }
+    }
+  }
+
+  for (var nodeId in this.nodes) {
+    if (this.nodes.hasOwnProperty(nodeId)) {
+      var node = this.nodes[nodeId];
+      if (node.type == "slave") {
+        node.x = (Math.random()-0.5) * (maxX - minX) * 0.9;
+        node.y = (Math.random()-0.5) * (maxY - minY) * 0.9;
+      }
+    }
+  }
+}
 
 /**
  * Binding the keys for keyboard navigation. These functions are defined in the NavigationMixin
  * @private
  */
-Graph.prototype._createKeyBinds = function() {
+Graph.prototype._bindKeys = function() {
   var me = this;
   this.mousetrap = mousetrap;
 
   this.mousetrap.reset();
+  this.mousetrap.bind("shift", this._pressShift.bind(me) , "keydown");
+  this.mousetrap.bind("shift", this._releaseShift.bind(me) , "keyup");
+  this.mousetrap.bind("space", this._connectToMasters.bind(me) , "keydown");
 
   if (this.constants.keyboard.enabled == true) {
     this.mousetrap.bind("up",   this._moveUp.bind(me)   , "keydown");
