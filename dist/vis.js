@@ -13666,14 +13666,6 @@ var SectorMixin = {
     // this is the currently active sector
     var sector = this._sector();
 
-//    // this should allow me to select nodes from a frozen set.
-//    if (this.sectors['active'][sector]["nodes"].hasOwnProperty(node.id)) {
-//      console.log("the node is part of the active sector");
-//    }
-//    else {
-//      console.log("I dont know what the fuck happened!!");
-//    }
-
     // when we switch to a new sector, we remove the node that will be expanded from the current nodes list.
     delete this.nodes[node.id];
 
@@ -18096,14 +18088,19 @@ Graph.prototype.start = function() {
   if (this.moving || this.xIncrement != 0 || this.yIncrement != 0 || this.zoomIncrement != 0) {
     if (!this.timer) {
       var ua = navigator.userAgent.toLowerCase();
-      if (ua.indexOf('safari') != -1) {
+
+      var requiresTimeout = false;
+      if (ua.indexOf('msie 9.0') != -1) { // IE 9
+        requiresTimeout = true;
+      }
+      else if (ua.indexOf('safari') != -1) {  // safari
         if (ua.indexOf('chrome') <= -1) {
-          // safari
-          this.timer = window.setTimeout(this._animationStep.bind(this), this.renderTimestep); // wait this.renderTimeStep milliseconds and perform the animation step function
+          requiresTimeout = true;
         }
-        else {
-          this.timer = window.requestAnimationFrame(this._animationStep.bind(this), this.renderTimestep); // wait this.renderTimeStep milliseconds and perform the animation step function
-        }
+      }
+
+      if (requiresTimeout == true) {
+        this.timer = window.setTimeout(this._animationStep.bind(this), this.renderTimestep); // wait this.renderTimeStep milliseconds and perform the animation step function
       }
       else{
         this.timer = window.requestAnimationFrame(this._animationStep.bind(this), this.renderTimestep); // wait this.renderTimeStep milliseconds and perform the animation step function

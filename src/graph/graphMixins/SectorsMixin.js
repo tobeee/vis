@@ -281,14 +281,6 @@ var SectorMixin = {
     // this is the currently active sector
     var sector = this._sector();
 
-//    // this should allow me to select nodes from a frozen set.
-//    if (this.sectors['active'][sector]["nodes"].hasOwnProperty(node.id)) {
-//      console.log("the node is part of the active sector");
-//    }
-//    else {
-//      console.log("I dont know what the fuck happened!!");
-//    }
-
     // when we switch to a new sector, we remove the node that will be expanded from the current nodes list.
     delete this.nodes[node.id];
 

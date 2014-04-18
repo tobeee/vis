@@ -2038,14 +2038,19 @@ Graph.prototype.start = function() {
   if (this.moving || this.xIncrement != 0 || this.yIncrement != 0 || this.zoomIncrement != 0) {
     if (!this.timer) {
       var ua = navigator.userAgent.toLowerCase();
-      if (ua.indexOf('safari') != -1) {
+
+      var requiresTimeout = false;
+      if (ua.indexOf('msie 9.0') != -1) { // IE 9
+        requiresTimeout = true;
+      }
+      else if (ua.indexOf('safari') != -1) {  // safari
         if (ua.indexOf('chrome') <= -1) {
-          // safari
-          this.timer = window.setTimeout(this._animationStep.bind(this), this.renderTimestep); // wait this.renderTimeStep milliseconds and perform the animation step function
+          requiresTimeout = true;
         }
-        else {
-          this.timer = window.requestAnimationFrame(this._animationStep.bind(this), this.renderTimestep); // wait this.renderTimeStep milliseconds and perform the animation step function
-        }
+      }
+
+      if (requiresTimeout == true) {
+        this.timer = window.setTimeout(this._animationStep.bind(this), this.renderTimestep); // wait this.renderTimeStep milliseconds and perform the animation step function
       }
       else{
         this.timer = window.requestAnimationFrame(this._animationStep.bind(this), this.renderTimestep); // wait this.renderTimeStep milliseconds and perform the animation step function
